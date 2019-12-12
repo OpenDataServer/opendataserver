@@ -29,7 +29,8 @@
                         <div class="field">
                             <label for="{{ form.username.id_for_label }}" class="label">E-Mail:</label>
                             <div class="control has-icons-left">
-                                <input class="input" id="{{ form.username.id_for_label }}" name="{{ form.username.name }}" type="email"
+                                <input class="input" id="{{ form.username.id_for_label }}"
+                                       name="{{ form.username.name }}" type="email"
                                        placeholder="E-Mail"/>
                                 <span class="icon is-small is-left">
                                 <i class="fas fa-envelope"></i>
@@ -39,8 +40,8 @@
                         <div class="field">
                             <label for="{{ form.password.id_for_label }}" class="label">Password:</label>
                             <div class="control has-icons-left">
-                                <input id="{{ form.password.id_for_label }}" name="{{ form.password.name }}" class="input" type="password"
-                                       placeholder="Password"/>
+                                <input id="{{ form.password.id_for_label }}" name="{{ form.password.name }}"
+                                       class="input" type="password" placeholder="Password"/>
                                 <span class="icon is-small is-left">
                                 <i class="fas fa-lock"></i>
                             </span>
@@ -56,9 +57,9 @@
                 </div>
                 <footer class="card-footer">
                     <p class="card-footer-item">
-                      <span>
-                        <a href="{% url 'password_reset' %}">Lost password?</a>
-                      </span>
+                        <span>
+                            <a href="{% url 'password_reset' %}">Lost password?</a>
+                        </span>
                     </p>
                 </footer>
             </div>
