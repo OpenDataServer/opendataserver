@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    {% load static %}
+{% load sass_tags %}    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OpenDataServer</title>
+
+        <link rel="stylesheet" href="{% sass_src 'bulma-0.8.0/bulma.scss' %}">
+        <link href="{% sass_src 'style.scss' %}" rel="stylesheet">
+    <script src="{% static "script.js" %}"></script>
+    <link href="{% static "roboto/roboto.css" %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.labcode.de/fonts/fontawesome/5.3.1/css/all.min.css"
+          integrity="sha256-YE3PHxFphlX3UEa7kvmKqpR34cFrAcX8QV54eUOT/7k=" crossorigin="anonymous"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static "favicon.ico" %}">
+</head>
+<body>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">OpenDataServer</a>
+
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+           data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+{#            <a class="navbar-item {% if request.resolver_match.namespace == "abc" %}is-active{% endif %}" href="{% url "verspaeti:index" %}">#}
+{#                Home#}
+{#            </a>#}
+        </div>
+    </div>
+</nav>
+<main class="container">
+    {% block content %}{% endblock %}
+</main>
+</body>
+</html>
