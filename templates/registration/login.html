@@ -47,9 +47,9 @@
                             </span>
                             </div>
                         </div>
-                        <div class="field">
+                        <div class="field columns is-centered" style="margin: 0">
                             <div class="control">
-                                <button class="button is-link" value="login">Submit</button>
+                                <button class="button is-primary" value="login">Submit</button>
                             </div>
                         </div>
                         <input type="hidden" name="next" value="{{ next }}"/>
@@ -59,6 +59,11 @@
                     <p class="card-footer-item">
                         <span>
                             <a href="{% url 'password_reset' %}">Lost password?</a>
+                        </span>
+                    </p>
+                    <p class="card-footer-item">
+                        <span>
+                            <a href="{% url 'accounts:signup' %}">Sign up?</a>
                         </span>
                     </p>
                 </footer>

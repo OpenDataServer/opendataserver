@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sass_processor',
-    'authentication'
+    'accounts'
 ]
 
 MIDDLEWARE = [
@@ -109,11 +109,11 @@ PASSWORD_HASHERS = [
 
 # User model
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-user-model
-AUTH_USER_MODEL = 'authentication.User'
+AUTH_USER_MODEL = 'accounts.User'
 
 #
 AUTHENTICATION_BACKEND = [
-    'authentication.EmailAuthenticationBackend',
+    'accounts.EmailAuthenticationBackend',
     'django.contrib.auth.backends.ModelBackend'
 ]
 

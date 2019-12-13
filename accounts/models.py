@@ -3,12 +3,12 @@ from django.contrib.auth.models import (
 )
 from django.db import models
 
-from authentication.managers import UserManager
+from accounts.managers import UserManager
 
 
 class User(AbstractBaseUser):
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['given_name']
+    REQUIRED_FIELDS = ['first_name']
 
     email = models.EmailField(
         unique=True,
@@ -16,11 +16,11 @@ class User(AbstractBaseUser):
         max_length=255
     )
 
-    given_name = models.CharField(
+    first_name = models.CharField(
         max_length=255
     )
 
-    family_name = models.CharField(
+    last_name = models.CharField(
         max_length=255,
         blank=True
     )

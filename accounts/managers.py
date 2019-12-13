@@ -13,10 +13,10 @@ class UserManager(BaseUserManager):
         user.save()
         return user
 
-    def create_superuser(self, email: str, given_name: str, password: str = None):
+    def create_superuser(self, email: str, first_name: str, password: str = None):
         user = self.model(
             email=email,
-            given_name=given_name,
+            first_name=first_name,
         )
         user.set_password(password)
         user.is_staff = True

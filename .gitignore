@@ -133,3 +133,5 @@ dmypy.json
 ### CUSTOM
 old/
 .idea/
+*.css
+*.css.map
