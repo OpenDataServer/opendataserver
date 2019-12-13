@@ -35,6 +35,11 @@ class User(AbstractBaseUser):
         verbose_name='Registration date of the user'
     )
 
+    is_active = models.BooleanField(
+        default=True,
+        verbose_name='Is user active'
+    )
+
     objects = UserManager()
 
     def save(self, *args, **kwargs):

@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import configparser
+
+config = configparser.RawConfigParser()
+config.read_file(open('.env.cfg', encoding='utf-8'))
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -143,3 +147,14 @@ STATICFILES_FINDERS = [
     'sass_processor.finders.CssFinder',
 ]
 SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'static')
+
+# Mail Settings
+# https://docs.djangoproject.com/en/3.0/ref/settings/#email-host
+DEFAULT_FROM_EMAIL = config.get('mail', 'from', fallback='opendataserver@localhost')
+EMAIL_PORT = config.getint('mail', 'port', fallback=25)
+EMAIL_HOST_USER = config.get('mail', 'user', fallback='')
+EMAIL_HOST_PASSWORD = config.get('mail', 'password', fallback='')
+EMAIL_HOST = config.get('mail', 'host', fallback='localhost')
+EMAIL_USE_TLS = config.getboolean('mail', 'tls', fallback=False)
+EMAIL_USE_SSL = config.getboolean('mail', 'ssl', fallback=False)
+EMAIL_SUBJECT_PREFIX = '[OpenDataServer] '
