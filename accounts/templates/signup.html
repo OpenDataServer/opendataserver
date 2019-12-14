@@ -1,105 +1,99 @@
 {% extends "base.html" %}
 
-{% block content %}
+{% load i18n %}
 
-    {% if next %}
-        {% if user.is_authenticated %}
-            <p>Your account doesn't have access to this page. To proceed,
-                please login with an account that has access.</p>
-        {% else %}
-            <p>Please login to see this page.</p>
-        {% endif %}
-    {% endif %}
+{% block content %}
     <div class="columns">
         <div class="column is-6 is-offset-3">
             <div class="card">
                 <div class="card-header">
                     <p class="card-header-title">
-                        Sign up
+                        {% trans 'Sign up' %}
                     </p>
                 </div>
                 <div class="card-content">
                     {% if form.errors %}
                         <div class="notification is-danger">
                             {% if form.errors.email %}
-                                There is already an account with the e-mail address, maybe you want to
-                                <a href="{% url 'login' %}">log in</a>?
+                                {% trans 'There is already an account with the e-mail address.' %}
                             {% elif form.errors.password1 %}
-                                Your password doesn't satisfy the minimum requirements. Please try again.
+                                {% trans "Your password doesn't satisfy the minimum requirements. Please try again." %}
                             {% elif form.errors.password2 %}
-                                The password confirmation doesn't match your password or doesn't satisfy the minimum
-                                requirements. Please try again.
+                                {% trans "The password confirmation doesn't match your password or doesn't satisfy the minimum requirements. Please try again." %}
                             {% endif %}
                         </div>
                     {% endif %}
                     <form method="post">
                         {% csrf_token %}
                         <div class="field">
-                            <label for="{{ form.first_name.id_for_label }}" class="label">First name:</label>
+                            <label for="{{ form.first_name.id_for_label }}"
+                                   class="label">{% trans 'First name' %}:</label>
                             <div class="control has-icons-left">
                                 <input required class="input" id="{{ form.first_name.id_for_label }}"
                                        name="{{ form.first_name.name }}" type="text"
-                                       placeholder="First name"/>
+                                       placeholder="{% trans 'First name' %}"/>
                                 <span class="icon is-small is-left">
                                     <i class="fas fa-user"></i>
                                 </span>
                             </div>
-                            <p class="help is-info"><b>Required</b></p>
+                            <p class="help is-info"><b>{% trans 'Required' %}</b></p>
                         </div>
                         <div class="field">
-                            <label for="{{ form.last_name.id_for_label }}" class="label">Last name:</label>
+                            <label for="{{ form.last_name.id_for_label }}"
+                                   class="label">{% trans 'Last name' %}:</label>
                             <div class="control has-icons-left">
                                 <input class="input" id="{{ form.last_name.id_for_label }}"
                                        name="{{ form.last_name.name }}" type="text"
-                                       placeholder="Last name"/>
+                                       placeholder="{% trans 'Last name' %}"/>
                                 <span class="icon is-small is-left">
                                     <i class="fas fa-user"></i>
                                 </span>
                             </div>
-                            <p class="help is-info"><b>Optional</b></p>
+                            <p class="help is-info"><b>{% trans 'Optional' %}</b></p>
                         </div>
                         <div class="field">
-                            <label for="{{ form.email.id_for_label }}" class="label">E-Mail:</label>
+                            <label for="{{ form.email.id_for_label }}" class="label">{% trans 'E-Mail' %}:</label>
                             <div class="control has-icons-left">
                                 <input required class="input" id="{{ form.email.id_for_label }}"
                                        name="{{ form.email.name }}" type="email"
-                                       placeholder="E-Mail"/>
+                                       placeholder="{% trans 'E-Mail' %}"/>
                                 <span class="icon is-small is-left">
                                 <i class="fas fa-envelope"></i>
                             </span>
                             </div>
-                            <p class="help is-info"><b>Required</b></p>
+                            <p class="help is-info"><b>{% trans 'Required' %}</b></p>
                         </div>
                         <div class="field">
-                            <label for="{{ form.password1.id_for_label }}" class="label">Password:</label>
+                            <label for="{{ form.password1.id_for_label }}" class="label">{% trans 'Password' %}:</label>
                             <div class="control has-icons-left">
                                 <input required id="{{ form.password1.id_for_label }}" name="{{ form.password1.name }}"
-                                       class="input" type="password" placeholder="Password"
+                                       class="input" type="password" placeholder="{% trans 'Password' %}"
                                        autocomplete="new-password"/>
                                 <span class="icon is-small is-left">
                                     <i class="fas fa-lock"></i>
                                 </span>
                             </div>
-                            <p class="help is-info"><b>Required</b>. Your password must be at least 8 characters long,
-                                can’t be entirely
-                                numeric and may not be be too similar to your other personal information</p>
+                            <p class="help is-info">
+                                <b>{% trans 'Required' %}</b>.
+                                {% trans 'Your password must be at least 8 characters long, can’t be entirely numeric and may not be be too similar to your other personal information' %}
+                            </p>
                         </div>
                         <div class="field">
-                            <label for="{{ form.password2.id_for_label }}" class="label">Password
-                                (Confirmation):</label>
+                            <label for="{{ form.password2.id_for_label }}"
+                                   class="label">{% trans 'Password (Confirmation)' %}:</label>
                             <div class="control has-icons-left">
                                 <input required id="{{ form.password2.id_for_label }}" name="{{ form.password2.name }}"
-                                       class="input" type="password" placeholder="Password (Confirmation)"
+                                       class="input" type="password" placeholder="{% trans 'Password (Confirmation)' %}"
                                        autocomplete="new-password"/>
                                 <span class="icon is-small is-left">
                                     <i class="fas fa-lock"></i>
                                 </span>
                             </div>
-                            <p class="help is-info"><b>Required</b></p>
+                            <p class="help is-info"><b>{% trans 'Required' %}</b></p>
                         </div>
                         <div class="field columns is-centered" style="margin: 0">
                             <div class="control">
-                                <button class="button is-primary" value="signup">Submit</button>
+                                <button class="button is-primary" value="signup">{% trans 'Submit' %}</button>
                             </div>
                         </div>
                         <input type="hidden" name="next" value="{{ next }}"/>
@@ -108,7 +102,7 @@
                 <footer class="card-footer">
                     <p class="card-footer-item">
                         <span>
-                            <a href="{% url 'login' %}">Log in?</a>
+                            <a href="{% url 'login' %}">{% trans 'Log in' %}?</a>
                         </span>
                     </p>
                 </footer>

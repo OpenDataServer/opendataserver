@@ -1,0 +1,87 @@
+# This file is distributed under the same license as the PACKAGE package.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-14 12:32+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Leo Maroni <hello@labcode.de>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: accounts/managers.py:7
+msgid "The Email must be set"
+msgstr "Es muss eine E-Mail Adresse gesetzt werden"
+
+#: accounts/templates/signup.html:11
+msgid "Sign up"
+msgstr "Registrierung"
+
+#: accounts/templates/signup.html:18
+msgid "There is already an account with the e-mail address."
+msgstr "Es gibt bereits ein Account mit dieser E-Mail-Adresse."
+
+#: accounts/templates/signup.html:20
+msgid ""
+"Your password doesn't satisfy the minimum requirements. Please try again."
+msgstr ""
+"Dein Passwort entspricht nicht den Mindestanforderungen. Bitte versuche es "
+"erneut."
+
+#: accounts/templates/signup.html:22
+msgid ""
+"The password confirmation doesn't match your password or doesn't satisfy the "
+"minimum requirements. Please try again."
+msgstr ""
+"Die Passwort-Bestätigung stimmt nicht mit dem Passwort überein oder erfüllt "
+"nicht die Mindestanforderungen. Bitte versuche es erneut."
+
+#: accounts/templates/signup.html:30 accounts/templates/signup.html:34
+msgid "First name"
+msgstr "Vorname"
+
+#: accounts/templates/signup.html:39 accounts/templates/signup.html:64
+#: accounts/templates/signup.html:77 accounts/templates/signup.html:92
+msgid "Required"
+msgstr "Erforderlich"
+
+#: accounts/templates/signup.html:43 accounts/templates/signup.html:47
+msgid "Last name"
+msgstr "Nachname"
+
+#: accounts/templates/signup.html:52
+msgid "Optional"
+msgstr "Optional"
+
+#: accounts/templates/signup.html:55 accounts/templates/signup.html:59
+msgid "E-Mail"
+msgstr "E-Mail-Adresse"
+
+#: accounts/templates/signup.html:67 accounts/templates/signup.html:70
+msgid "Password"
+msgstr "Passwort"
+
+#: accounts/templates/signup.html:78
+msgid ""
+"Your password must be at least 8 characters long, can’t be entirely numeric "
+"and may not be be too similar to your other personal information"
+msgstr ""
+"Dein Passwort muss mindestens 8 Zeichen lang sein, kann nicht vollständig "
+"numerisch sein und darf nicht zu ähnlich zu deinen anderen persönlichen "
+"Daten sein."
+
+#: accounts/templates/signup.html:83 accounts/templates/signup.html:86
+msgid "Password (Confirmation)"
+msgstr "Passwort (Bestätigung)"
+
+#: accounts/templates/signup.html:96
+msgid "Submit"
+msgstr "Absenden"
+
+#: accounts/templates/signup.html:105
+msgid "Log in"
+msgstr "Einloggen"

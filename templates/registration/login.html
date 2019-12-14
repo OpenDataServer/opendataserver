@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
 
@@ -27,21 +28,21 @@
                     <form method="post" action="{% url 'login' %}">
                         {% csrf_token %}
                         <div class="field">
-                            <label for="{{ form.username.id_for_label }}" class="label">E-Mail:</label>
+                            <label for="{{ form.username.id_for_label }}" class="label">{% trans 'E-Mail' %}:</label>
                             <div class="control has-icons-left">
                                 <input class="input" id="{{ form.username.id_for_label }}"
                                        name="{{ form.username.name }}" type="email"
-                                       placeholder="E-Mail"/>
+                                       placeholder="{% trans 'E-Mail' %}"/>
                                 <span class="icon is-small is-left">
                                 <i class="fas fa-envelope"></i>
                             </span>
                             </div>
                         </div>
                         <div class="field">
-                            <label for="{{ form.password.id_for_label }}" class="label">Password:</label>
+                            <label for="{{ form.password.id_for_label }}" class="label">{% trans 'Password' %}:</label>
                             <div class="control has-icons-left">
                                 <input id="{{ form.password.id_for_label }}" name="{{ form.password.name }}"
-                                       class="input" type="password" placeholder="Password"/>
+                                       class="input" type="password" placeholder="{% trans 'Password' %}"/>
                                 <span class="icon is-small is-left">
                                 <i class="fas fa-lock"></i>
                             </span>
@@ -49,7 +50,7 @@
                         </div>
                         <div class="field columns is-centered" style="margin: 0">
                             <div class="control">
-                                <button class="button is-primary" value="login">Submit</button>
+                                <button class="button is-primary" value="login">{% trans 'Submit' %}</button>
                             </div>
                         </div>
                         <input type="hidden" name="next" value="{{ next }}"/>
@@ -58,12 +59,12 @@
                 <footer class="card-footer">
                     <p class="card-footer-item">
                         <span>
-                            <a href="{% url 'password_reset' %}">Lost password?</a>
+                            <a href="{% url 'password_reset' %}">{% trans 'Lost password' %}?</a>
                         </span>
                     </p>
                     <p class="card-footer-item">
                         <span>
-                            <a href="{% url 'accounts:signup' %}">Sign up?</a>
+                            <a href="{% url 'accounts:signup' %}">{% trans 'Sign up' %}?</a>
                         </span>
                     </p>
                 </footer>
