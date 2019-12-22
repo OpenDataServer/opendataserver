@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+    <section class="container is-fluid">
+        <div class="columns">
+            {% for project in projects %}
+                <div class="column is-4">
+                    <div class="card">
+                        <div class="card-content has-background-dark has-text-white">
+                        <span class="tag">
+                           {{ project.user_role }}
+                        </span>
+                            <div class="content has-text-centered">
+                                <br>
+                                <p class="is-size-3">{{ project.name }}</p>
+                                <br>
+                            </div>
+                        </div>
+                        <footer class="card-footer level is-mobile">
+                            <div class="level-item has-text-centered">
+                                <div>
+                                    <p class="heading">{% trans 'Devices' %}</p>
+                                    <p class="title">{{ project.devices_count }}</p>
+                                </div>
+                            </div>
+                            <div class="level-item has-text-centered">
+                                <div>
+                                    <p class="heading">{% trans 'Members' %}</p>
+                                    <p class="title">{{ project.members_count }}</p>
+                                </div>
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+                {% if forloop.counter != 0 and forloop.counter|divisibleby:3 %}
+                    </div>
+                    <div class="columns">
+                {% endif %}
+            {% endfor %}
+            </div>
+    </section>
+{% endblock %}

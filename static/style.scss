@@ -4,6 +4,14 @@ body {
     flex-direction: column;
 }
 
+main {
+    flex-grow: 1;
+}
+
 footer.footer {
     padding: 1.5rem;
+}
+
+.card .card-footer.level {
+    padding: 10px 0;
 }

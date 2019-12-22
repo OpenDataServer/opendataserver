@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import gettext_lazy
 
 from accounts.models import User
 
@@ -10,12 +11,12 @@ class Project(models.Model):
     )
 
 
-class ProjectParticipant(models.Model):
+class ProjectMember(models.Model):
     ROLES = [
-        ('owner', 'Owner'),
-        ('admin', 'Admin'),
-        ('member', 'Member'),
-        ('restricted', 'Restricted'),
+        ('owner', gettext_lazy('Owner')),
+        ('admin', gettext_lazy('Admin')),
+        ('member', gettext_lazy('Member')),
+        ('restricted', gettext_lazy('Restricted')),
     ]
 
     project = models.ForeignKey(
