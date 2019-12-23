@@ -1,15 +1,15 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load i18n %}
 {% block content %}
-    <section class="container is-fluid">
+    <div class="container is-fluid">
         <div class="columns">
             {% for project in projects %}
                 <div class="column is-4">
                     <div class="card">
                         <div class="card-content has-background-dark has-text-white">
-                        <span class="tag">
-                           {{ project.user_role }}
-                        </span>
+                            <span class="tag">
+                               {{ project.user_role }}
+                            </span>
                             <div class="content has-text-centered">
                                 <br>
                                 <p class="is-size-3">{{ project.name }}</p>
@@ -38,5 +38,5 @@
                 {% endif %}
             {% endfor %}
             </div>
-    </section>
+    </div>
 {% endblock %}

@@ -1,0 +1,11 @@
+<aside class="menu column is-2-desktop is-12-mobile">
+      <p class="menu-label">
+        Project Settings
+      </p>
+    <ul class="menu-list">
+        <li>
+            {% url "projects:project_settings_general" project_id=request.resolver_match.kwargs.project_id as settings_url %}
+            <a {% if settings_url == request.path %}class="is-active"{% endif %}>General</a>
+        </li>
+    </ul>
+</aside>
