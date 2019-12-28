@@ -15,3 +15,19 @@ footer.footer {
 .card .card-footer.level {
     padding: 10px 0;
 }
+
+.new-card {
+    border: dotted #999999;
+    box-shadow: none;
+    height: 100%;
+    .card-content {
+        height: 100%;
+        align-items: center;
+        div.has-text-centered {
+            width: 100%;
+            p {
+                color: #999999;
+            }
+        }
+    }
+}
