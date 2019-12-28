@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-23 17:21+0100\n"
+"POT-Creation-Date: 2019-12-28 08:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,21 +18,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: projects/models.py:16
-msgid "Owner"
-msgstr "Besitzer"
-
+#: projects/forms/project_settings.py:18 projects/forms/project_settings.py:36
 #: projects/models.py:17
 msgid "Admin"
 msgstr "Admin"
 
+#: projects/forms/project_settings.py:19 projects/forms/project_settings.py:37
 #: projects/models.py:18
 msgid "Member"
 msgstr "Mitglied"
 
+#: projects/forms/project_settings.py:20 projects/forms/project_settings.py:38
 #: projects/models.py:19
 msgid "Restricted"
 msgstr "Beschränkt"
+
+#: projects/forms/project_settings.py:23 projects/forms/project_settings.py:41
+msgid "Role"
+msgstr "Rolle"
+
+#: projects/forms/project_settings.py:46
+msgid "E-Mail address of the user"
+msgstr "E-Mail Adresse des Nutzers"
+
+#: projects/models.py:16
+msgid "Owner"
+msgstr "Besitzer"
 
 #: projects/templates/details/settings/general.html:13
 #: projects/templates/details/settings/general.html:17
@@ -40,14 +51,39 @@ msgid "Project name"
 msgstr "Projektname"
 
 #: projects/templates/details/settings/general.html:22
+#: projects/templates/details/settings/members_edit.html:33
+#: projects/templates/details/settings/members_new.html:43
 msgid "Submit"
 msgstr "Absenden"
+
+#: projects/templates/details/settings/members.html:21
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: projects/templates/details/settings/members.html:35
+msgid "NEW"
+msgstr "NEU"
+
+#: projects/templates/details/settings/members_edit.html:12
+msgid "Name"
+msgstr "Name"
+
+#: projects/templates/details/settings/members_edit.html:18
+#: projects/templates/details/settings/members_new.html:27
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#: projects/templates/details/settings/members_new.html:12
+msgid ""
+"The user is already member in the project or a user with the e-mail address "
+"doesn't exists"
+msgstr "Der Nutzer ist entweder bereits Mitglied im Projekt oder es existiert kein Nutzer mit der E-Mail Addresse."
 
 #: projects/templates/list.html:22
 msgid "Devices"
 msgstr "Geräte"
 
-#: projects/templates/list.html:28
+#: projects/templates/list.html:28 projects/templates/sidenav.html:15
 msgid "Members"
 msgstr "Mitglieder"
 
@@ -55,6 +91,10 @@ msgstr "Mitglieder"
 msgid "Project Settings"
 msgstr "Projekteinstellungen"
 
-#: projects/templates/sidenav.html:9
+#: projects/templates/sidenav.html:10
 msgid "General"
 msgstr "Allgemein"
+
+#: projects/templates/sidenav.html:20
+msgid "New"
+msgstr "Neu"
