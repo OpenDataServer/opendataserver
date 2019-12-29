@@ -1,6 +1,4 @@
-from django.contrib.auth.models import (
-    AbstractBaseUser,
-)
+from django.contrib.auth.models import AbstractBaseUser
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
 
@@ -56,20 +54,27 @@ class User(AbstractBaseUser):
         """Does the user have permissions to view the app `app_label`?"""
         return True
 
-    def has_project_permission(self, project, minimum_needed_permission="owner") -> bool:
-        try:
-            project_member = ProjectMember.objects.get(user=self, project=project)
-            if minimum_needed_permission == "owner" and project_member.role == "owner":
-                return True
-            elif minimum_needed_permission == "admin" and (project_member.role == "owner" or project_member.role == "admin"):
-                return True
-            elif minimum_needed_permission == "member" and (project_member.role == "owner" or project_member.role == "admin" or project_member.role == "member"):
-                return True
-            elif minimum_needed_permission == "restricted":
-                return True
-            else:
+    def has_project_permission(self, project_id, minimum_needed_permission="owner", project=None) -> bool:
+        if project:
+            try:
+                project_member = ProjectMember.objects.get(user=self, project=project)
+            except ObjectDoesNotExist:
                 return False
-        except ObjectDoesNotExist:
+        else:
+            try:
+                project_member = ProjectMember.objects.get(user=self, project_id=project_id)
+            except ObjectDoesNotExist:
+                return False
+
+        if minimum_needed_permission == "owner" and project_member.role == "owner":
+            return True
+        elif minimum_needed_permission == "admin" and (project_member.role == "owner" or project_member.role == "admin"):
+            return True
+        elif minimum_needed_permission == "member" and (project_member.role == "owner" or project_member.role == "admin" or project_member.role == "member"):
+            return True
+        elif minimum_needed_permission == "restricted":
+            return True
+        else:
             return False
 
     def __str__(self):

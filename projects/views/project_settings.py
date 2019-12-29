@@ -8,8 +8,7 @@ from projects.models import Project, ProjectMember
 
 def general(request, project_id):
     project = get_object_or_404(Project, id=project_id)
-    if(request.user.has_project_permission(project, "admin")):
-        print(request.user)
+    if request.user.has_project_permission(project, "admin"):
         if request.method == 'POST':
             form = GeneralSettingsForm(request.POST, instance=project)
             if form.is_valid():
@@ -33,14 +32,17 @@ def general(request, project_id):
 
 def members(request, project_id):
     project = get_object_or_404(Project, id=project_id)
-    if(request.user.has_project_permission(project, "admin")):
+    if request.user.has_project_permission(project=project, minimum_needed_permission="admin"):
         project_members = ProjectMember.objects.filter(
             project=project
         )
         return render(
             request=request,
             template_name='details/settings/members.html',
-            context={'members': project_members}
+            context={
+                'members': project_members,
+                'current_user': request.user
+            }
         )
     else:
         raise PermissionDenied
@@ -48,7 +50,7 @@ def members(request, project_id):
 
 def members_edit(request, project_id, member_id):
     project = get_object_or_404(Project, id=project_id)
-    if(request.user.has_project_permission(project, "admin")):
+    if request.user.has_project_permission(project=project, minimum_needed_permission="admin"):
         project_member = get_object_or_404(
             ProjectMember,
             id=member_id,
@@ -86,7 +88,7 @@ def members_edit(request, project_id, member_id):
 
 def members_new(request, project_id):
     project = get_object_or_404(Project, id=project_id)
-    if(request.user.has_project_permission(project, "admin")):
+    if request.user.has_project_permission(project=project, minimum_needed_permission="admin"):
         if request.method == 'POST':
             form = MemberNewSettingsForm(request.POST)
             if form.is_valid():

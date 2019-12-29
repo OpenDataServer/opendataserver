@@ -18,7 +18,10 @@
                             </div>
                         </div>
                         <footer class="card-footer">
-                            <a href="{% url "projects:project_settings_members_edit" project_id=request.resolver_match.kwargs.project_id member_id=member.id %}" class="card-footer-item">{% trans "Edit" %}</a>
+                            {% if request.user != member.user %}
+                                <a href="{% url "projects:project_settings_members_edit" project_id=request.resolver_match.kwargs.project_id member_id=member.id %}"
+                                   class="card-footer-item">{% trans "Edit" %}</a>
+                            {% endif %}
                         </footer>
                     </div>
                 </div>
