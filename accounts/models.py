@@ -1,9 +1,11 @@
 from django.contrib.auth.models import (
     AbstractBaseUser,
 )
+from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
 
 from accounts.managers import UserManager
+from projects.models import ProjectMember
 
 
 class User(AbstractBaseUser):
@@ -53,6 +55,22 @@ class User(AbstractBaseUser):
     def has_module_perms(self, app_label):
         """Does the user have permissions to view the app `app_label`?"""
         return True
+
+    def has_project_permission(self, project, minimum_needed_permission="owner") -> bool:
+        try:
+            project_member = ProjectMember.objects.get(user=self, project=project)
+            if minimum_needed_permission == "owner" and project_member.role == "owner":
+                return True
+            elif minimum_needed_permission == "admin" and (project_member.role == "owner" or project_member.role == "admin"):
+                return True
+            elif minimum_needed_permission == "member" and (project_member.role == "owner" or project_member.role == "admin" or project_member.role == "member"):
+                return True
+            elif minimum_needed_permission == "restricted":
+                return True
+            else:
+                return False
+        except ObjectDoesNotExist:
+            return False
 
     def __str__(self):
         return self.email

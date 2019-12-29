@@ -1,8 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy
 
-from accounts.models import User
-
 
 class Project(models.Model):
     name = models.CharField(
@@ -25,7 +23,7 @@ class ProjectMember(models.Model):
     )
 
     user = models.ForeignKey(
-        to=User,
+        to='accounts.User',
         on_delete=models.CASCADE
     )
 
