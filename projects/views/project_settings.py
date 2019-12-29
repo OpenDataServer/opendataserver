@@ -18,6 +18,13 @@ def general(request, project_id):
                     template_name='details/settings/general.html',
                     context={'form': form}
                 )
+            return render(
+                request=request,
+                template_name='details/settings/general.html',
+                context={
+                    'form': form
+                }
+            )
 
         else:
             form = GeneralSettingsForm(instance=project)
