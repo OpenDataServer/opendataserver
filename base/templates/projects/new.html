@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+    <section class="container">
+        <div class="columns">
+            <div class="column is-8 is-offset-2">
+                <div class="card">
+                    <div class="card-content">
+                        {% if form.errors %}
+                            <div class="notification is-danger">
+                                {% if form.errors.name %}
+                                    {% trans "You must enter a project name" %}
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="field">
+                                <label for="{{ form.name.id_for_label }}" class="label">{{ form.name.label }}</label>
+                                <div class="control">
+                                    <input required class="input" id="{{ form.name.id_for_label }}"
+                                           name="{{ form.name.name }}" type="text"/>
+                                </div>
+                            </div>
+                            <div class="field columns is-centered" style="margin: 0">
+                                <div class="control">
+                                    <button class="button is-primary" value="login">{% trans 'Create' %}</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}s

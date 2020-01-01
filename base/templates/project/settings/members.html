@@ -1,0 +1,46 @@
+{% extends 'project/project_base.html' %}
+{% load i18n %}
+{% block innercontent %}
+    <div class="container is-fluid">
+        <div class="columns">
+            {% for member in members %}
+                <div class="column is-4">
+                    <div class="card">
+                        <div class="card-content has-background-dark has-text-white">
+                            <span class="tag">
+                               {{ member.get_role_display }}
+                            </span>
+                            <div class="content has-text-centered">
+                                <br>
+                                <p class="is-size-3 is-marginless">{{ member.user.first_name }} {{ member.user.last_name }}</p>
+                                <p class="is-size-5">{{ member.user.email }}</p>
+                                <br>
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            {% if request.user != member.user %}
+                                <a href="{% url "base:project_settings_members_edit" project_id=request.resolver_match.kwargs.project_id member_id=member.id %}"
+                                   class="card-footer-item">{% trans "Edit" %}</a>
+                            {% endif %}
+                        </footer>
+                    </div>
+                </div>
+                {% if forloop.counter != 0 and forloop.counter|divisibleby:3 %}
+                    </div>
+                    <div class="columns">
+                {% endif %}
+            {% endfor %}
+            <div class="column is-4">
+                <div class="card new-card">
+                    <a href="{% url "base:project_settings_members_new" project_id=request.resolver_match.kwargs.project_id %}">
+                        <div class="card-content is-flex">
+                            <div class="has-text-centered">
+                                <p class="is-size-3">{% trans "NEW" %}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            </div>
+    </div>
+{% endblock %}

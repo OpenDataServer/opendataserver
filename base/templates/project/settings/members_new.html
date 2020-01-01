@@ -1,0 +1,52 @@
+{% extends 'project/project_base.html' %}
+{% load i18n %}
+{% block innercontent %}
+    <section class="container">
+        <div class="columns">
+            <div class="column is-8 is-offset-2">
+                <div class="card">
+                    <div class="card-content">
+                        {% if form.errors %}
+                            <div class="notification is-danger">
+                                {% if form.errors.email %}
+                                    {% trans "The user is already member in the project or a user with the e-mail address doesn't exists" %}
+                                {% else %}
+                                    {% for field, errors in form.errors.items %}
+                                        {{ errors }}
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="field">
+                                <label for="{{ form.email.id_for_label }}" class="label">{{ form.email.label }}</label>
+                                <div class="control has-icons-left">
+                                    <input required class="input" id="{{ form.email.id_for_label }}"
+                                           name="{{ form.email.name }}" type="email"
+                                           placeholder="{% trans 'E-Mail' %}"/>
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-envelope"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label" for="{{ form.role.id_for_label }}">{{ form.role.label }}</label>
+                                <div class="control">
+                                    <div class="select">
+                                        {{ form.role }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field columns is-centered" style="margin: 0">
+                                <div class="control">
+                                    <button class="button is-primary" value="login">{% trans 'Submit' %}</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}s

@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sass_processor',
     'accounts',
-    'projects',
+    'base',
+    'datasources.airrohr',
+    'datasources.ttn'
 ]
 
 MIDDLEWARE = [
@@ -173,3 +175,11 @@ EMAIL_HOST = config.get('mail', 'host', fallback='localhost')
 EMAIL_USE_TLS = config.getboolean('mail', 'tls', fallback=False)
 EMAIL_USE_SSL = config.getboolean('mail', 'ssl', fallback=False)
 EMAIL_SUBJECT_PREFIX = '[OpenDataServer] '
+
+
+BROKER_URL = 'redis://10.151.19.43:6379'
+CELERY_RESULT_BACKEND = 'redis://10.151.19.43:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Europe/Berlin'

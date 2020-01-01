@@ -1,0 +1,29 @@
+{% load i18n %}
+{% load user_permissions %}
+<aside class="menu column is-2-desktop is-12-mobile">
+    {% has_user_project_permission project_id=request.resolver_match.kwargs.project_id user=request.user minimum_needed_permission="admin" as has_user_admin_project_permission %}
+    {% if has_user_admin_project_permission %}
+        <p class="menu-label">
+            {% trans 'Project Settings' %}
+        </p>
+        <ul class="menu-list">
+        <li>
+            {% url "base:project_settings_general" project_id=request.resolver_match.kwargs.project_id as settings_general_url %}
+            <a {% if settings_general_url == request.path %}class="is-active"{% endif %}
+               href="{{ settings_general_url }}">{% trans 'General' %}</a>
+        </li>
+        <li>
+            {% url "base:project_settings_members" project_id=request.resolver_match.kwargs.project_id as settings_members_url %}
+            <a {% if settings_members_url == request.path %}class="is-active"{% endif %}
+               href="{{ settings_members_url }}">{% trans 'Members' %}</a>
+            <ul>
+                <li>
+                    {% url "base:project_settings_members_new" project_id=request.resolver_match.kwargs.project_id as settings_members_new_url %}
+                    <a {% if settings_members_new_url == request.path %}class="is-active"{% endif %}
+                       href="{{ settings_members_new_url }}">{% trans 'New' %}</a>
+                </li>
+            </ul>
+        </li>
+    {% endif %}
+    </ul>
+</aside>

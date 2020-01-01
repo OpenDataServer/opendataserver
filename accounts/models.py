@@ -3,7 +3,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
 
 from accounts.managers import UserManager
-from projects.models import ProjectMember
+from base.models import ProjectMember
 
 
 class User(AbstractBaseUser):
@@ -54,7 +54,7 @@ class User(AbstractBaseUser):
         """Does the user have permissions to view the app `app_label`?"""
         return True
 
-    def has_project_permission(self, project_id, minimum_needed_permission="owner", project=None) -> bool:
+    def has_project_permission(self, project_id=None, minimum_needed_permission="owner", project=None) -> bool:
         if project:
             try:
                 project_member = ProjectMember.objects.get(user=self, project=project)
