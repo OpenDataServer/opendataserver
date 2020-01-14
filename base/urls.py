@@ -1,7 +1,7 @@
 from django.urls import path
 
 from base.views import projects
-from base.views.project import settings
+from base.views.project import settings, devices
 
 app_name = 'base'
 
@@ -13,6 +13,7 @@ urlpatterns = [
     path('project/<int:project_id>/settings/members/<int:member_id>', settings.members_edit,
          name="project_settings_members_edit"),
     path('project/<int:project_id>/settings/members/new', settings.members_new,
-         name="project_settings_members_new")
+         name="project_settings_members_new"),
+    path('project/<int:project_id>/devices', devices.DevicesList.as_view(), name="project_devices_list")
 
 ]

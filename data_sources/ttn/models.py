@@ -21,5 +21,3 @@ class ProjectAuthenticationTTN(models.Model):
         max_length=255,
         default="discovery.thethings.network:1900"
     )
-
-

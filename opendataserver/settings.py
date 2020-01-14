@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import configparser
 import os
+
 from django.utils.translation import ugettext_lazy as _
 
 config = configparser.RawConfigParser()
@@ -43,8 +44,8 @@ INSTALLED_APPS = [
     'sass_processor',
     'accounts',
     'base',
-    'datasources.airrohr',
-    'datasources.ttn'
+    'data_sources.airrohr',
+    'data_sources.ttn'
 ]
 
 MIDDLEWARE = [
@@ -176,10 +177,21 @@ EMAIL_USE_TLS = config.getboolean('mail', 'tls', fallback=False)
 EMAIL_USE_SSL = config.getboolean('mail', 'ssl', fallback=False)
 EMAIL_SUBJECT_PREFIX = '[OpenDataServer] '
 
-
-BROKER_URL = 'redis://10.151.19.43:6379'
-CELERY_RESULT_BACKEND = 'redis://10.151.19.43:6379'
+# Celery
+CELERY_BROKER_URL = config.get('celery', 'broker_url')
+CELERY_RESULT_BACKEND = config.get('celery', 'result_backend')
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'Europe/Berlin'
+CELERY_TIMEZONE = TIME_ZONE
+# CELERY_BEAT_SCHEDULE = {}
+
+# InfluxDB
+INFLUXDB_HOST = config.get('influxdb', 'host', fallback='localhost')
+INFLUXDB_PORT = config.getint('influxdb', 'port', fallback=8086)
+INFLUXDB_USERNAME = config.get('influxdb', 'username', fallback='root')
+INFLUXDB_PASSWORD = config.get('influxdb', 'password', fallback='root')
+INFLUXDB_DATABASE = config.get('influxdb', 'database', fallback='opendataserver')
+INFLUXDB_SSL = config.getboolean('influxdb', 'ssl', fallback=False)
+INFLUXDB_VERIFY_SSL = config.getboolean('influxdb', 'verify_ssl', fallback=False)
+INFLUXDB_REPLICATION_FACTOR = config.getint('influxdb', 'replication_factor', fallback=1)

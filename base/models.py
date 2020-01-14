@@ -62,6 +62,27 @@ class ProjectDevice(models.Model):
 
 
 class ProjectSensor(models.Model):
+    SENSOR_TYPES = [
+        (gettext_lazy("Specific"), (
+            ("air_pressure", gettext_lazy("Air pressure")),
+            ("humidity", gettext_lazy("Humidity")),
+            ("parking_lot", gettext_lazy("Parking lot (is free)")),
+            ("particles_10", gettext_lazy("Particles PM10")),
+            ("particles_2_5", gettext_lazy("Particles PM2.5")),
+            ("radioactivity", gettext_lazy("Radioactivity")),
+            ("rainfall", gettext_lazy("Rainfall")),
+            ("temperature_indoor", gettext_lazy("Temperature (Indoor)")),
+            ("temperature_outdoor", gettext_lazy("Temperature (Outdoor)")),
+            ("water_level", gettext_lazy("Water level")),
+            ("wind_speed", gettext_lazy("Wind speed")),
+            ("wind_direction", gettext_lazy("Wind direction")),
+            ("wind_gust", gettext_lazy("Wind gust")),
+        )),
+        (gettext_lazy("General"), (
+            ("distance", gettext_lazy("Distance")),
+            ("speed", gettext_lazy("Speed")),
+        ))
+    ]
     device = models.ForeignKey(
         to=ProjectDevice,
         on_delete=models.CASCADE,
@@ -73,7 +94,8 @@ class ProjectSensor(models.Model):
     )
     type = models.CharField(
         max_length=255,
-        verbose_name="Sensor type"
+        verbose_name="Sensor type",
+        choices=SENSOR_TYPES
     )
     field_name_in_data = models.CharField(
         max_length=255,

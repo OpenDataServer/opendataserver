@@ -20,14 +20,24 @@ footer.footer {
     border: dotted #999999;
     box-shadow: none;
     height: 100%;
+
     .card-content {
         height: 100%;
         align-items: center;
+
         div.has-text-centered {
             width: 100%;
+
             p {
                 color: #999999;
             }
         }
+    }
+}
+
+table tbody th .control .select {
+    width: 100%;
+    select {
+        width: 100%;
     }
 }

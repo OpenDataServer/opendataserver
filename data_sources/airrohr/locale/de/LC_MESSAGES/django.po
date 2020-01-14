@@ -1,0 +1,72 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-01-14 16:30+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Leo Maroni <hello@labcode.de>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: data_sources/airrohr/forms/device_new.py:9
+msgid "Sensor ID (given by Airrohr)"
+msgstr "Sensor ID (von Luftdaten.info vergeben)"
+
+#: data_sources/airrohr/forms/device_new.py:26
+msgid "Device name"
+msgstr "Gerätename"
+
+#: data_sources/airrohr/forms/device_new.py:34
+msgid "Please enter a device name"
+msgstr "Bitte gib einen Gerätenamen an"
+
+#: data_sources/airrohr/forms/device_new.py:39
+msgid "Latitude"
+msgstr "Breitengrad"
+
+#: data_sources/airrohr/forms/device_new.py:49
+msgid "Longitude"
+msgstr "Längengrad"
+
+#: data_sources/airrohr/forms/device_new.py:64
+msgid "Sensor name"
+msgstr "Sensorname"
+
+#: data_sources/airrohr/forms/device_new.py:71
+msgid "Please enter a name for all sensors"
+msgstr "Bitte gib einen Namen für alle Sensoren an"
+
+#: data_sources/airrohr/forms/device_new.py:82
+msgid "Field name in data"
+msgstr "Feldname in Daten"
+
+#: data_sources/airrohr/forms/device_new.py:89
+msgid "Please enter a data field name for all sensors"
+msgstr "Bitte gib einen Feldnamen in den Daten für alle Sensoren an"
+
+#: data_sources/airrohr/templates/device_new_step_1.html:9
+msgid "New device - Step 1"
+msgstr "Neues Gerät - Schritt 1"
+
+#: data_sources/airrohr/templates/device_new_step_1.html:15
+msgid "Please enter a valid sensor id (numeric)"
+msgstr "Bitte gib eine valide Sensor ID an (numerisch)"
+
+#: data_sources/airrohr/templates/device_new_step_1.html:30
+#: data_sources/airrohr/templates/device_new_step_2.html:98
+msgid "Create"
+msgstr "Erstellen"
+
+#: data_sources/airrohr/templates/device_new_step_2.html:9
+msgid "New device - Step 2"
+msgstr "Neues Gerät - Schritt 2"

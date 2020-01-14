@@ -1,0 +1,119 @@
+{% extends "project/base.html" %}
+{% load i18n %}
+{% block innercontent %}
+    <section class="container">
+        <div class="columns">
+            <div class="column is-8 is-offset-2">
+                <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">{% trans "New device - Step 2" %}</p>
+                </header>
+                    <div class="card-content">
+                        {% for sensor_form_error in sensor_formset.errors %}
+                            {% if sensor_form_error.items %}
+                                <div class="notification is-danger">
+                                    {% for field, error in sensor_form_error.items %}
+                                        {{ error }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="has-text-centered">
+                                <p class="is-size-3">Sensors</p>
+                            </div>
+                            {{ sensor_formset.management_form }}
+                            <table class="table" style="width: 100%">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Field name</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for sensor_form in sensor_formset %}
+                                    <tr>
+                                        <th>
+                                            <div class="field">
+                                                <div class="control">
+                                                    {{ sensor_form.sensor_name }}
+                                                </div>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="control">
+                                                <div class="select">
+                                                    {{ sensor_form.sensor_type }}
+                                                </div>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="field">
+                                                <div class="control">
+                                                    {{ sensor_form.sensor_field_name }}
+                                                </div>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                            <div class="has-text-centered">
+                                <p class="is-size-3">Device information</p>
+                            </div>
+                            {% if device_form.errors %}
+                                <div class="notification is-danger">
+                                    {% for field, error in device_form.errors.items %}
+                                        {{ error }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                            {{ device_form.sensor_id }}
+                            <div class="field">
+                                <label for="{{ device_form.device_name.id_for_label }}"
+                                       class="label">{{ device_form.device_name.label }}</label>
+                                <div class="control">
+                                    <input required class="input" id="{{ device_form.device_name.id_for_label }}"
+                                           name="{{ device_form.device_name.name }}" type="text"/>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="{{ device_form.geo_lat.id_for_label }}"
+                                       class="label">{{ device_form.geo_lat.label }}</label>
+                                <div class="control">
+                                    {{ device_form.geo_lat }}
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="{{ device_form.geo_lon.id_for_label }}"
+                                       class="label">{{ device_form.geo_lon.label }}</label>
+                                <div class="control">
+                                    {{ device_form.geo_lon }}
+                                </div>
+                            </div>
+                            <div class="field columns is-centered" style="margin: 0">
+                                <div class="control">
+                                    <button class="button is-primary" value="login">{% trans 'Create' %}</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+
+
+<form method="post">
+    {% csrf_token %}
+    {{ device_form }}
+    <br>
+    <br>
+    <br>
+    <br>
+    {#{{ sensor_formset }}#}
+</form>

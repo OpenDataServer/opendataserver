@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class AirrohrConfig(AppConfig):
-    name = 'datasources.airrohr'
+    name = 'data_sources.airrohr'

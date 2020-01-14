@@ -25,5 +25,7 @@ urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('', include('base.urls', namespace='base'))
+    path('', include('base.urls', namespace='base')),
+    path('project/<int:project_id>/data_source/airrohr/',
+         include('data_sources.airrohr.urls', namespace='data_sources_airrohr'))
 )

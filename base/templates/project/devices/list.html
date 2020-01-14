@@ -1,0 +1,76 @@
+{% extends 'project/base.html' %}
+{% load i18n %}
+{% block innercontent %}
+    <div class="container is-fluid">
+        <div class="columns">
+            {% for device in devices %}
+                <div class="column is-4">
+                    <div class="card">
+                        <div class="card-content has-background-dark has-text-white">
+                            <div class="content has-text-centered">
+                                <br><br>
+                                <p class="is-size-3 is-marginless">{{ device.name }}</p>
+                                <br><br>
+                            </div>
+                        </div>
+                        <footer class="card-footer level is-mobile">
+                            <div class="level-item has-text-centered">
+                                <div>
+                                    <p class="heading">{% trans 'Sensors' %}</p>
+                                    <p class="title">{{ device.sensor_count }}</p>
+                                </div>
+                            </div>
+                            <div class="level-item">
+                                <a href="">Edit</a>
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+                {% if forloop.counter != 0 and forloop.counter|divisibleby:3 %}
+                    </div>
+                    <div class="columns">
+                {% endif %}
+            {% endfor %}
+            <div class="column is-4">
+                <div class="card new-card" id="new-device-card">
+                    <div class="card-content is-flex">
+                        <div class="has-text-centered">
+                            <p class="is-size-3">{% trans "NEW" %}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
+
+    <div class="modal" id="modal-new-device">
+        <div class="modal-background" id="modal-new-device-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <div class="has-text-centered">
+                    <p class="is-size-3">{% trans "Select the data source" %}</p>
+                </div>
+                <br>
+                <div class="buttons">
+                    <a href="{% url "data_sources_airrohr:device_new" project_id=request.resolver_match.kwargs.project_id %}" class="button is-large is-fullwidth">{% trans "Airrohr" %}</a>
+                    <button class="button is-large is-fullwidth" disabled>{% trans "The Things Network" %}</button>
+                </div>
+            </div>
+        </div>
+        <button id="modal-new-device-close" class="modal-close is-large" aria-label="close"></button>
+    </div>
+    <script>
+        document.getElementById("new-device-card").addEventListener("click", () => {
+            document.getElementById("modal-new-device").classList.add("is-active");
+            document.documentElement.classList.add("is-clipped");
+        });
+
+        function closeNewDeviceModal() {
+            document.getElementById("modal-new-device").classList.remove("is-active");
+            document.documentElement.classList.remove("is-clipped");
+        }
+
+        document.getElementById("modal-new-device-background").addEventListener("click", closeNewDeviceModal);
+        document.getElementById("modal-new-device-close").addEventListener("click", closeNewDeviceModal);
+    </script>
+{% endblock %}

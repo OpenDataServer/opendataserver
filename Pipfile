@@ -11,8 +11,10 @@ argon2-cffi = "==19.2.0"
 django-sass-processor = "==0.7.5"
 Django = "==3.0"
 configparser = "==4.0.2"
-django-guardian = "*"
 flake8 = "*"
+celery = "*"
+redis = "*"
+influxdb = "*"
 
 [requires]
 python_version = "3"

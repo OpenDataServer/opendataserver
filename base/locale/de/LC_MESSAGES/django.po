@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-01 17:17+0100\n"
+"POT-Creation-Date: 2020-01-14 16:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Last-Translator: Leo Maroni <hello@labcode.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -50,6 +50,95 @@ msgstr "Projektname"
 msgid "Owner"
 msgstr "Besitzer"
 
+#: base/models.py:66
+msgid "Specific"
+msgstr "Spezifisch"
+
+#: base/models.py:67
+msgid "Air pressure"
+msgstr "Luftdruck"
+
+#: base/models.py:68
+msgid "Humidity"
+msgstr "Luftfeuchtigkeit"
+
+#: base/models.py:69
+msgid "Parking lot (is free)"
+msgstr "Parkplatz (ist frei)"
+
+#: base/models.py:70
+msgid "Particles PM10"
+msgstr "Feinstaub PM10"
+
+#: base/models.py:71
+msgid "Particles PM2.5"
+msgstr "Feinstaub PM2.5"
+
+#: base/models.py:72
+msgid "Radioactivity"
+msgstr "Radioaktivität"
+
+#: base/models.py:73
+msgid "Rainfall"
+msgstr "Regenmenge"
+
+#: base/models.py:74
+msgid "Temperature (Indoor)"
+msgstr "Temperatur (Innen)"
+
+#: base/models.py:75
+msgid "Temperature (Outdoor)"
+msgstr "Temperatur (Außen)"
+
+#: base/models.py:76
+msgid "Water level"
+msgstr "Wasserhöhe"
+
+#: base/models.py:77
+msgid "Wind speed"
+msgstr "Windgeschwindigkeit"
+
+#: base/models.py:78
+msgid "Wind direction"
+msgstr "Windrichtung"
+
+#: base/models.py:79
+msgid "Wind gust"
+msgstr "Windböengeschwindigkeit"
+
+#: base/models.py:81
+msgid "General"
+msgstr "Allgemein"
+
+#: base/models.py:82
+msgid "Distance"
+msgstr "Abstand"
+
+#: base/models.py:83
+msgid "Speed"
+msgstr "Geschwindigkeit"
+
+#: base/templates/project/devices/list.html:19
+msgid "Sensors"
+msgstr "Sensoren"
+
+#: base/templates/project/devices/list.html:38
+#: base/templates/project/settings/members.html:38
+msgid "NEW"
+msgstr "NEU"
+
+#: base/templates/project/devices/list.html:51
+msgid "Select the data source"
+msgstr "Wähle die Datenquelle"
+
+#: base/templates/project/devices/list.html:55
+msgid "Airrohr"
+msgstr "Luftdaten.info"
+
+#: base/templates/project/devices/list.html:56
+msgid "The Things Network"
+msgstr "The Things Network"
+
 #: base/templates/project/settings/general.html:12
 #: base/templates/projects/new.html:12
 msgid "The project must have a name"
@@ -64,10 +153,6 @@ msgstr "Absenden"
 #: base/templates/project/settings/members.html:23
 msgid "Edit"
 msgstr "Bearbeiten"
-
-#: base/templates/project/settings/members.html:38
-msgid "NEW"
-msgstr "NEU"
 
 #: base/templates/project/settings/members_edit.html:19
 msgid "Name"
@@ -86,25 +171,13 @@ msgstr ""
 "Der Nutzer ist entweder bereits Mitglied im Projekt oder es existiert kein "
 "Nutzer mit der E-Mail Addresse."
 
-#: base/templates/project/sidenav.html:7
-msgid "Project Settings"
-msgstr "Projekteinstellungen"
-
-#: base/templates/project/sidenav.html:13
-msgid "General"
-msgstr "Allgemein"
-
-#: base/templates/project/sidenav.html:18 base/templates/projects/list.html:28
-msgid "Members"
-msgstr "Mitglieder"
-
-#: base/templates/project/sidenav.html:23
-msgid "New"
-msgstr "Neu"
-
 #: base/templates/projects/list.html:22
 msgid "Devices"
 msgstr "Geräte"
+
+#: base/templates/projects/list.html:28
+msgid "Members"
+msgstr "Mitglieder"
 
 #: base/templates/projects/new.html:27
 msgid "Create"

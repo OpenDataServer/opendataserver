@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class TtnConfig(AppConfig):
-    name = 'datasources.ttn'
+    name = 'data_sources.ttn'

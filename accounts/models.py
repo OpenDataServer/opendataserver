@@ -68,9 +68,11 @@ class User(AbstractBaseUser):
 
         if minimum_needed_permission == "owner" and project_member.role == "owner":
             return True
-        elif minimum_needed_permission == "admin" and (project_member.role == "owner" or project_member.role == "admin"):
+        elif minimum_needed_permission == "admin" and (
+            project_member.role == "owner" or project_member.role == "admin"):
             return True
-        elif minimum_needed_permission == "member" and (project_member.role == "owner" or project_member.role == "admin" or project_member.role == "member"):
+        elif minimum_needed_permission == "member" and (
+            project_member.role == "owner" or project_member.role == "admin" or project_member.role == "member"):
             return True
         elif minimum_needed_permission == "restricted":
             return True
