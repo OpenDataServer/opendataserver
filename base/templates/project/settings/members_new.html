@@ -6,17 +6,7 @@
             <div class="column is-8 is-offset-2">
                 <div class="card">
                     <div class="card-content">
-                        {% if form.errors %}
-                            <div class="notification is-danger">
-                                {% if form.errors.email %}
-                                    {% trans "The user is already member in the project or a user with the e-mail address doesn't exists" %}
-                                {% else %}
-                                    {% for field, errors in form.errors.items %}
-                                        {{ errors }}
-                                    {% endfor %}
-                                {% endif %}
-                            </div>
-                        {% endif %}
+                        {% include "messages.html" %}
                         <form method="post">
                             {% csrf_token %}
                             <div class="field">

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-14 16:30+0100\n"
+"POT-Creation-Date: 2020-01-22 20:59+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Leo Maroni <hello@labcode.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,31 +18,35 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: opendataserver/settings.py:151
+#: opendataserver/settings.py:152
 msgid "English"
 msgstr "Englisch"
 
-#: opendataserver/settings.py:152
+#: opendataserver/settings.py:153
 msgid "German"
 msgstr "Deutsch"
 
 #: templates/footer.html:10
 msgid "Select language"
-msgstr ""
+msgstr "Sprache auswählen"
 
-#: templates/project/sidenav.html:8
+#: templates/project/sidenav.html:10
+msgid "Devices"
+msgstr "Geräte"
+
+#: templates/project/sidenav.html:15
 msgid "Project Settings"
 msgstr "Projekteinstellungen"
 
-#: templates/project/sidenav.html:14
+#: templates/project/sidenav.html:21
 msgid "General"
 msgstr "Allgemein"
 
-#: templates/project/sidenav.html:19
+#: templates/project/sidenav.html:26
 msgid "Members"
 msgstr "Mitglieder"
 
-#: templates/project/sidenav.html:24
+#: templates/project/sidenav.html:31
 msgid "New"
 msgstr "Neu"
 

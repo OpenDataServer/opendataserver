@@ -1,9 +1,7 @@
 from django import forms
-from django.core.exceptions import ObjectDoesNotExist
 from django.utils.translation import gettext_lazy
 
-from accounts.models import User
-from base.models import Project
+from base.models import Project, ProjectMember
 
 
 class GeneralSettingsForm(forms.ModelForm):
@@ -12,7 +10,11 @@ class GeneralSettingsForm(forms.ModelForm):
         fields = ('name',)
 
 
-class MemberEditSettingsForm(forms.Form):
+class MemberEditSettingsForm(forms.ModelForm):
+    class Meta:
+        model = ProjectMember
+        fields = ('role',)
+
     role = forms.ChoiceField(
         choices=[
             ("admin", gettext_lazy("Admin")),
@@ -25,12 +27,6 @@ class MemberEditSettingsForm(forms.Form):
 
 
 class MemberNewSettingsForm(forms.Form):
-    def user_exists(self):
-        try:
-            User.objects.get(email=self)
-        except ObjectDoesNotExist:
-            raise forms.ValidationError("There is no user with the e-mail address")
-
     role = forms.ChoiceField(
         choices=[
             ("admin", gettext_lazy("Admin")),
@@ -44,6 +40,5 @@ class MemberNewSettingsForm(forms.Form):
     email = forms.CharField(
         max_length=255,
         label=gettext_lazy("E-Mail address of the user"),
-        required=True,
-        validators=[user_exists, ]
+        required=True
     )

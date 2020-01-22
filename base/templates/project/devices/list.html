@@ -2,6 +2,7 @@
 {% load i18n %}
 {% block innercontent %}
     <div class="container is-fluid">
+        {% include "messages.html" %}
         <div class="columns">
             {% for device in devices %}
                 <div class="column is-4">
@@ -52,7 +53,8 @@
                 </div>
                 <br>
                 <div class="buttons">
-                    <a href="{% url "data_sources_airrohr:device_new" project_id=request.resolver_match.kwargs.project_id %}" class="button is-large is-fullwidth">{% trans "Airrohr" %}</a>
+                    <a href="{% url "data_sources_airrohr:device_new" project_id=request.resolver_match.kwargs.project_id %}"
+                       class="button is-large is-fullwidth">{% trans "Airrohr" %}</a>
                     <button class="button is-large is-fullwidth" disabled>{% trans "The Things Network" %}</button>
                 </div>
             </div>

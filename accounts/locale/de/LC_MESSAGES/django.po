@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-14 16:30+0100\n"
+"POT-Creation-Date: 2020-01-22 20:59+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Leo Maroni <hello@labcode.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,6 +12,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: accounts/permissions.py:16
+msgid "You do not have the permission to view this project"
+msgstr "Du hast nicht die Berechtigung dieses Projekt anzuschauen"
 
 #: accounts/templates/signup.html:12
 msgid "Sign up"
@@ -81,6 +85,3 @@ msgstr "Absenden"
 #: accounts/templates/signup.html:110
 msgid "Log in"
 msgstr "Einloggen"
-
-#~ msgid "The Email must be set"
-#~ msgstr "Es muss eine E-Mail Adresse gesetzt werden"

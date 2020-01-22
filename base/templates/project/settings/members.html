@@ -2,6 +2,7 @@
 {% load i18n %}
 {% block innercontent %}
     <div class="container is-fluid">
+        {% include "messages.html" %}
         <div class="columns">
             {% for member in members %}
                 <div class="column is-4">

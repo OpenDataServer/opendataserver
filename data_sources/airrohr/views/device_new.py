@@ -2,21 +2,24 @@ from django.forms import formset_factory
 from django.shortcuts import render, redirect
 from django.views.generic import FormView
 
+from accounts.permissions import ProjectPermissionRequiredMixin, project_permission_required
 from base.models import ProjectDevice, ProjectSensor
 from data_sources.airrohr.forms.device_new import DeviceNewStep1Form, SensorNewForm, DeviceNewStep2Form
 from data_sources.airrohr.models import ProjectAuthenticationAirrohr
 from data_sources.airrohr.tasks import airrohr_data_get_raw_task
 
 
-class DeviceNewStep1View(FormView):
+class DeviceNewStep1View(ProjectPermissionRequiredMixin, FormView):
     template_name = "device_new_step_1.html"
     form_class = DeviceNewStep1Form
+    permission = "admin"
 
     def form_valid(self, form):
         return redirect("data_sources_airrohr:device_new_automatic_step_2", project_id=self.kwargs['project_id'],
                         sensor_id=form.cleaned_data['sensor_id'])
 
 
+@project_permission_required(minimum_needed_permission="admin")
 def device_new_step_2_view(request, project_id, sensor_id):
     if request.method == "GET":
         airrohr_data_raw = airrohr_data_get_raw_task.delay(sensor_id=sensor_id).get()

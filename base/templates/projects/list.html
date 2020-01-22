@@ -2,6 +2,7 @@
 {% load i18n %}
 {% block content %}
     <div class="container is-fluid">
+        {% include "messages.html" %}
         <div class="columns">
             {% for project in projects %}
                 <div class="column is-4">

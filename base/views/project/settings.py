@@ -1,125 +1,100 @@
-from django.core.exceptions import PermissionDenied
-from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
+from django.shortcuts import get_object_or_404, redirect
+from django.urls import reverse_lazy
+from django.utils.functional import cached_property
+from django.utils.translation import gettext
+from django.views.generic import UpdateView, TemplateView
 
 from accounts.models import User
+from accounts.permissions import ProjectPermissionRequiredMixin
 from base.forms.project_settings import MemberNewSettingsForm, GeneralSettingsForm, MemberEditSettingsForm
 from base.models import Project, ProjectMember
 
 
-def general(request, project_id):
-    project = get_object_or_404(Project, id=project_id)
-    if request.user.has_project_permission(project, "admin"):
-        if request.method == 'POST':
-            form = GeneralSettingsForm(request.POST, instance=project)
-            if form.is_valid():
-                form.save()
-                return render(
-                    request=request,
-                    template_name='project/settings/general.html',
-                    context={'form': form}
-                )
-            return render(
-                request=request,
-                template_name='project/settings/general.html',
-                context={
-                    'form': form
-                }
-            )
-
-        else:
-            form = GeneralSettingsForm(instance=project)
-            return render(
-                request=request,
-                template_name='project/settings/general.html',
-                context={'form': form}
-            )
-    else:
-        raise PermissionDenied
+# Check Permissions
 
 
-def members(request, project_id):
-    project = get_object_or_404(Project, id=project_id)
-    if request.user.has_project_permission(project=project, minimum_needed_permission="admin"):
+class GeneralSettingsView(ProjectPermissionRequiredMixin, SuccessMessageMixin, UpdateView):
+    permission = "admin"
+    template_name = "project/settings/general.html"
+    form_class = GeneralSettingsForm
+    success_message = gettext("Your changes have been saved.")
+
+    def get_success_url(self):
+        return reverse_lazy("base:project_settings_general", args=[self.kwargs['project_id']])
+
+    def get_object(self, queryset=None):
+        project = Project.objects.get(id=self.kwargs['project_id'])
+        return project
+
+
+class MemberSettingsView(ProjectPermissionRequiredMixin, TemplateView):
+    permission = "admin"
+    template_name = "project/settings/members.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
         project_members = ProjectMember.objects.filter(
-            project=project
+            project=self.request.project
         )
-        return render(
-            request=request,
-            template_name='project/settings/members.html',
-            context={
-                'members': project_members,
-                'current_user': request.user
-            }
-        )
-    else:
-        raise PermissionDenied
+        context['members'] = project_members
+        return context
 
 
-def members_edit(request, project_id, member_id):
-    project = get_object_or_404(Project, id=project_id)
-    if request.user.has_project_permission(project=project, minimum_needed_permission="admin"):
+class MemberEditSettingsView(ProjectPermissionRequiredMixin, SuccessMessageMixin, UpdateView):
+    permission = "admin"
+    template_name = "project/settings/members_edit.html"
+    form_class = MemberEditSettingsForm
+    success_message = gettext("Your changes have been saved.")
+
+    def get_success_url(self):
+        return reverse_lazy("base:project_settings_members", args=[self.kwargs['project_id']])
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['project_member'] = self.object
+        return context
+
+    def get_object(self, queryset=None):
         project_member = get_object_or_404(
             ProjectMember,
-            id=member_id,
-            project=project
+            id=self.kwargs['member_id'],
+            project=self.request.project
         )
-        if request.method == 'POST':
-            form = MemberEditSettingsForm(request.POST)
-            if form.is_valid():
-                project_member.role = form.cleaned_data['role']
-                project_member.save()
-                return redirect('base:project_settings_members', project_id=project_id)
-            return render(
-                request=request,
-                template_name='project/settings/members_new.html',
-                context={
-                    'form': form
-                }
-            )
-        else:
-            form = MemberEditSettingsForm(
-                initial={
-                    "role": project_member.role
-                })
-            return render(
-                request=request,
-                template_name='project/settings/members_edit.html',
-                context={
-                    'form': form,
-                    'project_member': project_member
-                }
-            )
-    else:
-        raise PermissionDenied
+        return project_member
 
 
-def members_new(request, project_id):
-    project = get_object_or_404(Project, id=project_id)
-    if request.user.has_project_permission(project=project, minimum_needed_permission="admin"):
-        if request.method == 'POST':
-            form = MemberNewSettingsForm(request.POST)
-            if form.is_valid():
-                user = User.objects.get(email=form.cleaned_data['email'])
-                if ProjectMember.objects.filter(user=user, project=project).count() == 0:
-                    ProjectMember.objects.create(user=user, role=form.cleaned_data['role'], project=project)
-                    return redirect('base:project_settings_members', project_id=project_id)
-                else:
-                    form.add_error("email", "The user is already member in the project")
-            return render(
-                request=request,
-                template_name='project/settings/members_new.html',
-                context={
-                    'form': form
-                }
-            )
-        else:
-            form = MemberNewSettingsForm()
-            return render(
-                request=request,
-                template_name='project/settings/members_new.html',
-                context={
-                    'form': form
-                }
-            )
-    else:
-        raise PermissionDenied
+class MemberNewSettingsView(ProjectPermissionRequiredMixin, TemplateView):
+    permission = "admin"
+    template_name = "project/settings/members_new.html"
+
+    @cached_property
+    def add_form(self):
+        return MemberNewSettingsForm(data=(self.request.POST if self.request.method == "POST" else None))
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['form'] = self.add_form
+        return ctx
+
+    def post(self, request, *args, **kwargs):
+        if self.add_form.is_valid():
+            try:
+                user = User.objects.get(email__iexact=self.add_form.cleaned_data['email'])
+            except User.DoesNotExist:
+                messages.error(self.request, gettext("Users need to have an account before they can be invited."))
+                return self.get(request, *args, **kwargs)
+
+            if ProjectMember.objects.filter(user=user, project_id=kwargs['project_id']).count() != 0:
+                messages.error(self.request, gettext("The user is already member in the project."))
+                return self.get(request, *args, **kwargs)
+
+            else:
+                ProjectMember.objects.create(
+                    user=user,
+                    role=self.add_form.cleaned_data['role'],
+                    project_id=kwargs['project_id']
+                )
+                messages.success(self.request, gettext("The new member has been added to the project."))
+                return redirect('base:project_settings_members', project_id=kwargs['project_id'])

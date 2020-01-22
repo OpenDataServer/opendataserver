@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-14 16:30+0100\n"
+"POT-Creation-Date: 2020-01-22 20:59+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Leo Maroni <hello@labcode.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,33 +18,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: base/forms/project_settings.py:18 base/forms/project_settings.py:36
+#: base/forms/project_settings.py:20 base/forms/project_settings.py:32
 #: base/models.py:15
 msgid "Admin"
 msgstr "Admin"
 
-#: base/forms/project_settings.py:19 base/forms/project_settings.py:37
+#: base/forms/project_settings.py:21 base/forms/project_settings.py:33
 #: base/models.py:16
 msgid "Member"
 msgstr "Mitglied"
 
-#: base/forms/project_settings.py:20 base/forms/project_settings.py:38
+#: base/forms/project_settings.py:22 base/forms/project_settings.py:34
 #: base/models.py:17
 msgid "Restricted"
 msgstr "Beschränkt"
 
-#: base/forms/project_settings.py:23 base/forms/project_settings.py:41
+#: base/forms/project_settings.py:25 base/forms/project_settings.py:37
 msgid "Role"
 msgstr "Rolle"
 
-#: base/forms/project_settings.py:46
+#: base/forms/project_settings.py:42
 msgid "E-Mail address of the user"
 msgstr "E-Mail Adresse des Nutzers"
 
-#: base/forms/projects.py:8 base/templates/project/settings/general.html:24
-#: base/templates/project/settings/general.html:28
+#: base/forms/projects.py:8 base/templates/project/settings/general.html:25
+#: base/templates/project/settings/general.html:29
 msgid "Project name"
 msgstr "Projektname"
+
+#: base/middlewares/event.py:22
+msgid "The selected project was not found"
+msgstr "Das ausgewählte Projekt wurde nicht gefunden"
 
 #: base/models.py:14
 msgid "Owner"
@@ -118,39 +122,39 @@ msgstr "Abstand"
 msgid "Speed"
 msgstr "Geschwindigkeit"
 
-#: base/templates/project/devices/list.html:19
+#: base/templates/project/devices/list.html:20
 msgid "Sensors"
 msgstr "Sensoren"
 
-#: base/templates/project/devices/list.html:38
-#: base/templates/project/settings/members.html:38
+#: base/templates/project/devices/list.html:39
+#: base/templates/project/settings/members.html:39
 msgid "NEW"
 msgstr "NEU"
 
-#: base/templates/project/devices/list.html:51
+#: base/templates/project/devices/list.html:52
 msgid "Select the data source"
 msgstr "Wähle die Datenquelle"
 
-#: base/templates/project/devices/list.html:55
+#: base/templates/project/devices/list.html:57
 msgid "Airrohr"
 msgstr "Luftdaten.info"
 
-#: base/templates/project/devices/list.html:56
+#: base/templates/project/devices/list.html:58
 msgid "The Things Network"
 msgstr "The Things Network"
 
-#: base/templates/project/settings/general.html:12
+#: base/templates/project/settings/general.html:13
 #: base/templates/projects/new.html:12
 msgid "The project must have a name"
 msgstr "Das Projekt muss einen Namen haben"
 
-#: base/templates/project/settings/general.html:33
+#: base/templates/project/settings/general.html:34
 #: base/templates/project/settings/members_edit.html:42
-#: base/templates/project/settings/members_new.html:43
+#: base/templates/project/settings/members_new.html:33
 msgid "Submit"
 msgstr "Absenden"
 
-#: base/templates/project/settings/members.html:23
+#: base/templates/project/settings/members.html:24
 msgid "Edit"
 msgstr "Bearbeiten"
 
@@ -159,26 +163,35 @@ msgid "Name"
 msgstr "Name"
 
 #: base/templates/project/settings/members_edit.html:27
-#: base/templates/project/settings/members_new.html:27
+#: base/templates/project/settings/members_new.html:17
 msgid "E-Mail"
 msgstr "E-Mail"
 
-#: base/templates/project/settings/members_new.html:12
-msgid ""
-"The user is already member in the project or a user with the e-mail address "
-"doesn't exists"
-msgstr ""
-"Der Nutzer ist entweder bereits Mitglied im Projekt oder es existiert kein "
-"Nutzer mit der E-Mail Addresse."
-
-#: base/templates/projects/list.html:22
+#: base/templates/projects/list.html:23
 msgid "Devices"
 msgstr "Geräte"
 
-#: base/templates/projects/list.html:28
+#: base/templates/projects/list.html:29
 msgid "Members"
 msgstr "Mitglieder"
 
 #: base/templates/projects/new.html:27
 msgid "Create"
 msgstr "Erstellen"
+
+#: base/views/project/settings.py:22 base/views/project/settings.py:49
+msgid "Your changes have been saved."
+msgstr "Deine Änderungen wurden gespeichert."
+
+#: base/views/project/settings.py:86
+msgid "Users need to have an account before they can be invited."
+msgstr "Mitglieder brauchen ein Konto bevor diese eingeladen werden können."
+
+#: base/views/project/settings.py:90
+msgid "The user is already member in the project."
+msgstr "Der Nutzer ist entweder bereits Mitglied im Projekt"
+
+#: base/views/project/settings.py:99
+#, fuzzy
+msgid "The new member has been added to the project."
+msgstr "Das neue Mitglied wurde zum Projekt hinzugefügt"
