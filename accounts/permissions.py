@@ -14,7 +14,9 @@ def project_permission_required(minimum_needed_permission):
             ):
                 return function(request, *args, **kwargs)
             raise PermissionDenied(gettext("You do not have the permission to view this project"))
+
         return wrapper
+
     return decorator
 
 

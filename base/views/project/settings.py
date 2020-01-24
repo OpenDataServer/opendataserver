@@ -25,7 +25,7 @@ class GeneralSettingsView(ProjectPermissionRequiredMixin, SuccessMessageMixin, U
         return reverse_lazy("base:project_settings_general", args=[self.kwargs['project_id']])
 
     def get_object(self, queryset=None):
-        project = Project.objects.get(id=self.kwargs['project_id'])
+        project = Project.objects.get(pk=self.kwargs['project_id'])
         return project
 
 
@@ -59,7 +59,7 @@ class MemberEditSettingsView(ProjectPermissionRequiredMixin, SuccessMessageMixin
     def get_object(self, queryset=None):
         project_member = get_object_or_404(
             ProjectMember,
-            id=self.kwargs['member_id'],
+            pk=self.kwargs['member_id'],
             project=self.request.project
         )
         return project_member

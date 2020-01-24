@@ -6,8 +6,8 @@
     <ul class="menu-list">
         <li>
             {% url "base:project_devices_list" project_id=request.resolver_match.kwargs.project_id as devices_list_url %}
-                <a {% if devices_list_url == request.path %}class="is-active"{% endif %}
-                   href="{{ devices_list_url }}">{% trans 'Devices' %}</a>
+            <a {% if devices_list_url == request.path %}class="is-active"{% endif %}
+               href="{{ devices_list_url }}">{% trans 'Devices' %}</a>
         </li>
     </ul>
     {% if has_user_admin_project_permission %}

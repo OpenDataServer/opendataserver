@@ -29,7 +29,7 @@ def projects_new(request):
         if form.is_valid():
             project = Project.objects.create(name=form.cleaned_data['name'])
             ProjectMember.objects.create(project=project, role="owner", user=request.user)
-            project_add_continuous_query.apply_async(args=(project.id,))
+            project_add_continuous_query.apply_async(args=(project.pk,))
             return redirect("base:projects_list")
         return render(
             request=request,

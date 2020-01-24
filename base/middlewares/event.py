@@ -17,7 +17,7 @@ class EventMiddleware:
         url = resolve(request.path_info)
         if 'project_id' in url.kwargs:
             try:
-                request.project = Project.objects.get(id=url.kwargs['project_id'])
+                request.project = Project.objects.get(pk=url.kwargs['project_id'])
             except ObjectDoesNotExist:
                 raise Http404(gettext("The selected project was not found"))
         return self.get_response(request)

@@ -22,7 +22,7 @@ def airrohr_data_get_raw_task(sensor_id):
 
 @app.task()
 def airrohr_data_get_task(authentication_airrohr_id: int):
-    authentication_airrohr = ProjectAuthenticationAirrohr.objects.get(id=authentication_airrohr_id)
+    authentication_airrohr = ProjectAuthenticationAirrohr.objects.get(pk=authentication_airrohr_id)
     influxdb_client = get_influxdb_client()
     data_raw = data_get_raw(authentication_airrohr.sensor_id)
     influxdb_data_points = []
@@ -33,10 +33,10 @@ def airrohr_data_get_task(authentication_airrohr_id: int):
                 field_name_in_data=sensor_data_value['value_type']
             ).first()
             influxdb_data_points.append({
-                "measurement": "project_" + str(authentication_airrohr.device.project.id) + "_raw",
+                "measurement": "project_" + str(authentication_airrohr.device.project.pk) + "_raw",
                 "tags": {
-                    "device_id": authentication_airrohr.device.id,
-                    "sensor_id": sensor.id
+                    "device_id": authentication_airrohr.device.pk,
+                    "sensor_id": sensor.pk
                 },
                 "retention_policy": "raw_data",
                 "time": data_point['timestamp'],
@@ -50,4 +50,4 @@ def airrohr_data_get_task(authentication_airrohr_id: int):
 @receiver(signal=airrohr_periodic_task_signal)
 def airrohr_data_get_periodic_manager(sender, **kwargs):
     for authentication_airrohr in ProjectAuthenticationAirrohr.objects.all():
-        airrohr_data_get_task.apply_async(args=(authentication_airrohr.id,))
+        airrohr_data_get_task.apply_async(args=(authentication_airrohr.pk,))
