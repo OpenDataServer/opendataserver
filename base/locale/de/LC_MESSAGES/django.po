@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-22 20:59+0100\n"
+"POT-Creation-Date: 2020-02-03 16:44+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Leo Maroni <hello@labcode.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,8 +41,7 @@ msgstr "Rolle"
 msgid "E-Mail address of the user"
 msgstr "E-Mail Adresse des Nutzers"
 
-#: base/forms/projects.py:8 base/templates/project/settings/general.html:25
-#: base/templates/project/settings/general.html:29
+#: base/forms/projects.py:8
 msgid "Project name"
 msgstr "Projektname"
 
@@ -110,7 +109,7 @@ msgstr "Windrichtung"
 msgid "Wind gust"
 msgstr "Windböengeschwindigkeit"
 
-#: base/models.py:81
+#: base/models.py:81 base/templates/project/settings/general.html:5
 msgid "General"
 msgstr "Allgemein"
 
@@ -122,58 +121,70 @@ msgstr "Abstand"
 msgid "Speed"
 msgstr "Geschwindigkeit"
 
-#: base/templates/project/devices/list.html:20
+#: base/templates/project/devices/list.html:4
+msgid "Device list"
+msgstr "Geräteliste"
+
+#: base/templates/project/devices/list.html:23
 msgid "Sensors"
 msgstr "Sensoren"
 
-#: base/templates/project/devices/list.html:39
-#: base/templates/project/settings/members.html:39
+#: base/templates/project/devices/list.html:42
+#: base/templates/project/settings/members.html:42
 msgid "NEW"
 msgstr "NEU"
 
-#: base/templates/project/devices/list.html:52
+#: base/templates/project/devices/list.html:55
 msgid "Select the data source"
 msgstr "Wähle die Datenquelle"
 
-#: base/templates/project/devices/list.html:57
+#: base/templates/project/devices/list.html:60
 msgid "Airrohr"
 msgstr "Luftdaten.info"
 
-#: base/templates/project/devices/list.html:58
+#: base/templates/project/devices/list.html:61
 msgid "The Things Network"
 msgstr "The Things Network"
 
-#: base/templates/project/settings/general.html:13
+#: base/templates/project/settings/general.html:17
 #: base/templates/projects/new.html:12
 msgid "The project must have a name"
 msgstr "Das Projekt muss einen Namen haben"
 
-#: base/templates/project/settings/general.html:34
-#: base/templates/project/settings/members_edit.html:42
-#: base/templates/project/settings/members_new.html:33
+#: base/templates/project/settings/general.html:30
+#: base/templates/project/settings/members_edit.html:39
+#: base/templates/project/settings/members_new.html:19
 msgid "Submit"
 msgstr "Absenden"
 
-#: base/templates/project/settings/members.html:24
+#: base/templates/project/settings/members.html:4
+#: base/templates/projects/list.html:29
+msgid "Members"
+msgstr "Mitglieder"
+
+#: base/templates/project/settings/members.html:27
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: base/templates/project/settings/members_edit.html:19
+#: base/templates/project/settings/members_edit.html:5
+msgid "Edit member"
+msgstr "Mitglied bearbeiten"
+
+#: base/templates/project/settings/members_edit.html:23
 msgid "Name"
 msgstr "Name"
 
-#: base/templates/project/settings/members_edit.html:27
-#: base/templates/project/settings/members_new.html:17
+#: base/templates/project/settings/members_edit.html:31
 msgid "E-Mail"
 msgstr "E-Mail"
+
+#: base/templates/project/settings/members_new.html:5
+msgid "Create member"
+msgstr "Erstellen"
 
 #: base/templates/projects/list.html:23
 msgid "Devices"
 msgstr "Geräte"
-
-#: base/templates/projects/list.html:29
-msgid "Members"
-msgstr "Mitglieder"
 
 #: base/templates/projects/new.html:27
 msgid "Create"

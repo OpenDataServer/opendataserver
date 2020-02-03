@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-22 20:59+0100\n"
+"POT-Creation-Date: 2020-02-03 16:44+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Leo Maroni <hello@labcode.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: opendataserver/settings.py:152
+#: opendataserver/settings.py:153
 msgid "English"
 msgstr "Englisch"
 
-#: opendataserver/settings.py:153
+#: opendataserver/settings.py:154
 msgid "German"
 msgstr "Deutsch"
 
@@ -50,68 +50,66 @@ msgstr "Mitglieder"
 msgid "New"
 msgstr "Neu"
 
-#: templates/registration/login.html:32 templates/registration/login.html:36
-#: templates/registration/password_reset_form.html:25
-#: templates/registration/password_reset_form.html:29
-msgid "E-Mail"
-msgstr "E-Mail"
+#: templates/registration/login.html:5
+msgid "Login"
+msgstr ""
 
-#: templates/registration/login.html:44 templates/registration/login.html:47
-msgid "Password"
-msgstr "Passwort"
-
-#: templates/registration/login.html:55
-#: templates/registration/password_reset_form.html:37
+#: templates/registration/login.html:36
+#: templates/registration/password_reset_form.html:30
 msgid "Submit"
 msgstr "Absenden"
 
-#: templates/registration/login.html:64
+#: templates/registration/login.html:45
 msgid "Lost password"
 msgstr "Passwort vergessen"
 
-#: templates/registration/login.html:69
+#: templates/registration/login.html:50
 msgid "Sign up"
 msgstr "Registrieren"
 
-#: templates/registration/password_reset_complete.html:11
-#: templates/registration/password_reset_done.html:11
-#: templates/registration/password_reset_form.html:11
+#: templates/registration/password_reset_complete.html:4
+#: templates/registration/password_reset_complete.html:13
+#: templates/registration/password_reset_confirm.html:4
+#: templates/registration/password_reset_done.html:4
+#: templates/registration/password_reset_done.html:13
+#: templates/registration/password_reset_form.html:5
+#: templates/registration/password_reset_form.html:14
 msgid "Password reset"
 msgstr "Passwort zurücksetzen"
 
-#: templates/registration/password_reset_complete.html:16
+#: templates/registration/password_reset_complete.html:18
 msgid ""
 "Your password has been changed, you can now log in with your new password."
 msgstr ""
 "Dein Passwort wurde geändert, du kannst dich nun mit deinem neuen Passwort "
 "anmelden."
 
-#: templates/registration/password_reset_complete.html:22
-#: templates/registration/password_reset_form.html:46
+#: templates/registration/password_reset_complete.html:24
+#: templates/registration/password_reset_form.html:39
 msgid "Log in"
 msgstr "Einloggen"
 
-#: templates/registration/password_reset_confirm.html:7
+#: templates/registration/password_reset_confirm.html:9
 msgid "Please enter (and confirm) your new password."
 msgstr "Bitte gib dein neues Passwort ein (und bestätige es)."
 
-#: templates/registration/password_reset_confirm.html:13
+#: templates/registration/password_reset_confirm.html:15
 msgid "New password"
 msgstr "Neues Passwort"
 
-#: templates/registration/password_reset_confirm.html:18
+#: templates/registration/password_reset_confirm.html:20
 msgid "Confirm password"
 msgstr "Passwort bestätigen"
 
-#: templates/registration/password_reset_confirm.html:23
+#: templates/registration/password_reset_confirm.html:25
 msgid "Change my password"
 msgstr "Mein Passwort ändern"
 
-#: templates/registration/password_reset_confirm.html:28
+#: templates/registration/password_reset_confirm.html:30
 msgid "Password reset failed"
 msgstr "Passwort-Zurücksetzung fehlgeschlagen"
 
-#: templates/registration/password_reset_confirm.html:29
+#: templates/registration/password_reset_confirm.html:31
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used. Please request a new password reset."
@@ -119,7 +117,7 @@ msgstr ""
 "Der Link zum Zurücksetzen des Passworts war ungültig, möglicherweise weil er "
 "bereits verwendet wurde. Bitte fordern Sie einen neuen Passwort Reset an."
 
-#: templates/registration/password_reset_done.html:16
+#: templates/registration/password_reset_done.html:18
 msgid ""
 "We've e-mailed you instructions for changing your password. If they haven't "
 "arrived in a few minutes, check your spam folder and if it isn't there mail "

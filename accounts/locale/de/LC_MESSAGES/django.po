@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-22 20:59+0100\n"
+"POT-Creation-Date: 2020-02-03 16:44+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Leo Maroni <hello@labcode.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,22 +17,22 @@ msgstr ""
 msgid "You do not have the permission to view this project"
 msgstr "Du hast nicht die Berechtigung dieses Projekt anzuschauen"
 
-#: accounts/templates/signup.html:12
+#: accounts/templates/signup.html:5 accounts/templates/signup.html:14
 msgid "Sign up"
 msgstr "Registrierung"
 
-#: accounts/templates/signup.html:19
+#: accounts/templates/signup.html:21
 msgid "There is already an account with the e-mail address."
 msgstr "Es gibt bereits ein Account mit dieser E-Mail-Adresse."
 
-#: accounts/templates/signup.html:21
+#: accounts/templates/signup.html:23
 msgid ""
 "Your password doesn't satisfy the minimum requirements. Please try again."
 msgstr ""
 "Dein Passwort entspricht nicht den Mindestanforderungen. Bitte versuche es "
 "erneut."
 
-#: accounts/templates/signup.html:23
+#: accounts/templates/signup.html:25
 msgid ""
 "The password confirmation doesn't match your password or doesn't satisfy the "
 "minimum requirements. Please try again."
@@ -40,32 +40,32 @@ msgstr ""
 "Die Passwort-Bestätigung stimmt nicht mit dem Passwort überein oder erfüllt "
 "nicht die Mindestanforderungen. Bitte versuche es erneut."
 
-#: accounts/templates/signup.html:31 accounts/templates/signup.html:35
+#: accounts/templates/signup.html:33 accounts/templates/signup.html:37
 msgid "First name"
 msgstr "Vorname"
 
-#: accounts/templates/signup.html:40 accounts/templates/signup.html:65
-#: accounts/templates/signup.html:80 accounts/templates/signup.html:97
+#: accounts/templates/signup.html:42 accounts/templates/signup.html:67
+#: accounts/templates/signup.html:82 accounts/templates/signup.html:99
 msgid "Required"
 msgstr "Erforderlich"
 
-#: accounts/templates/signup.html:44 accounts/templates/signup.html:48
+#: accounts/templates/signup.html:46 accounts/templates/signup.html:50
 msgid "Last name"
 msgstr "Nachname"
 
-#: accounts/templates/signup.html:53
+#: accounts/templates/signup.html:55
 msgid "Optional"
 msgstr "Optional"
 
-#: accounts/templates/signup.html:56 accounts/templates/signup.html:60
+#: accounts/templates/signup.html:58 accounts/templates/signup.html:62
 msgid "E-Mail"
 msgstr "E-Mail-Adresse"
 
-#: accounts/templates/signup.html:69 accounts/templates/signup.html:73
+#: accounts/templates/signup.html:71 accounts/templates/signup.html:75
 msgid "Password"
 msgstr "Passwort"
 
-#: accounts/templates/signup.html:81
+#: accounts/templates/signup.html:83
 msgid ""
 "Your password must be at least 8 characters long, can’t be entirely numeric "
 "and may not be be too similar to your other personal information"
@@ -74,14 +74,14 @@ msgstr ""
 "numerisch sein und darf nicht zu ähnlich zu deinen anderen persönlichen "
 "Daten sein."
 
-#: accounts/templates/signup.html:86 accounts/templates/signup.html:91
+#: accounts/templates/signup.html:88 accounts/templates/signup.html:93
 msgid "Password (Confirmation)"
 msgstr "Passwort (Bestätigung)"
 
-#: accounts/templates/signup.html:101
+#: accounts/templates/signup.html:103
 msgid "Submit"
 msgstr "Absenden"
 
-#: accounts/templates/signup.html:110
+#: accounts/templates/signup.html:112
 msgid "Log in"
 msgstr "Einloggen"

@@ -1,5 +1,9 @@
 {% extends 'project/base.html' %}
 {% load i18n %}
+{% load bulma_tags %}
+
+{% block title %}{% trans "Edit member" %}{% endblock %}
+
 {% block innercontent %}
     <section class="container">
         <div class="columns">
@@ -29,14 +33,7 @@
                                     <input class="input" type="email" value="{{ project_member.user.email }}" disabled>
                                 </div>
                             </div>
-                            <div class="field">
-                                <label class="label" for="{{ form.role.id_for_label }}">{{ form.role.label }}</label>
-                                <div class="control">
-                                    <div class="select">
-                                        {{ form.role }}
-                                    </div>
-                                </div>
-                            </div>
+                            {{ form|bulma }}
                             <div class="field columns is-centered" style="margin: 0">
                                 <div class="control">
                                     <button class="button is-primary" value="login">{% trans 'Submit' %}</button>

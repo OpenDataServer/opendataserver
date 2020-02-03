@@ -1,5 +1,9 @@
 {% extends 'project/base.html' %}
 {% load i18n %}
+{% load bulma_tags %}
+
+{% block title %}{% trans "General" %}{% endblock %}
+
 {% block innercontent %}
     <section class="container">
         <div class="columns">
@@ -20,15 +24,7 @@
                         {% endif %}
                         <form method="post">
                             {% csrf_token %}
-                            <div class="field">
-                                <label for="{{ form.name.id_for_label }}"
-                                       class="label">{% trans 'Project name' %}:</label>
-                                <div class="control">
-                                    <input required class="input" id="{{ form.name.id_for_label }}"
-                                           name="{{ form.name.name }}" value="{{ form.name.value }}" type="text"
-                                           placeholder="{% trans 'Project name' %}"/>
-                                </div>
-                            </div>
+                            {{form|bulma}}
                             <div class="field columns is-centered" style="margin: 0">
                                 <div class="control">
                                     <button class="button is-primary" value="login">{% trans 'Submit' %}</button>

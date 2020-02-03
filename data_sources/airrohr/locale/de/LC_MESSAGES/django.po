@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-14 16:30+0100\n"
+"POT-Creation-Date: 2020-02-03 16:44+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Leo Maroni <hello@labcode.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,19 +54,24 @@ msgstr "Feldname in Daten"
 msgid "Please enter a data field name for all sensors"
 msgstr "Bitte gib einen Feldnamen in den Daten für alle Sensoren an"
 
-#: data_sources/airrohr/templates/device_new_step_1.html:9
+#: data_sources/airrohr/templates/device_new_step_1.html:5
+#: data_sources/airrohr/templates/device_new_step_2.html:5
+msgid "Create device"
+msgstr "Gerät erstellen"
+
+#: data_sources/airrohr/templates/device_new_step_1.html:13
 msgid "New device - Step 1"
 msgstr "Neues Gerät - Schritt 1"
 
-#: data_sources/airrohr/templates/device_new_step_1.html:15
+#: data_sources/airrohr/templates/device_new_step_1.html:19
 msgid "Please enter a valid sensor id (numeric)"
 msgstr "Bitte gib eine valide Sensor ID an (numerisch)"
 
-#: data_sources/airrohr/templates/device_new_step_1.html:30
-#: data_sources/airrohr/templates/device_new_step_2.html:98
+#: data_sources/airrohr/templates/device_new_step_1.html:28
+#: data_sources/airrohr/templates/device_new_step_2.html:81
 msgid "Create"
 msgstr "Erstellen"
 
-#: data_sources/airrohr/templates/device_new_step_2.html:9
+#: data_sources/airrohr/templates/device_new_step_2.html:13
 msgid "New device - Step 2"
 msgstr "Neues Gerät - Schritt 2"
