@@ -1,0 +1,43 @@
+{% load i18n %}
+{% load user_permissions %}
+
+<aside class="menu column is-3-tablet is-2-widescreen is-1-fullhd is-12-mobile">
+    <ul class="menu-list">
+        <li>
+            <div class="dropdown" style="margin: 15px 0;">
+                <div class="dropdown-trigger">
+                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                        {% if request.project %}
+                            <span>{% trans "Project" %}: {{ request.project.name }}</span>
+                        {% else %}
+                            <span>{% trans "User" %}: {{ request.user.email }}</span>
+
+                        {% endif %}
+                        <span class="icon is-small">
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                          </span>
+                    </button>
+                </div>
+                <div class="dropdown-menu" role="menu">
+                    <div class="dropdown-content">
+                        <a href="{% url "accounts:settings_general" %}" class="dropdown-item">
+                            {% trans "User" %}: {{ request.user.email }}
+                        </a>
+
+                        <hr class="dropdown-divider">
+                        <a href="{% url "base:projects_new" %}" class="dropdown-item">
+                            <i>{% trans "Create project" %}</i>
+                        </a>
+                        {% for project in request.user.get_projects %}
+                            <a href="{% url "base:project_devices_list" project_id=project.pk %}"
+                               class="dropdown-item">
+                                {% trans "Project" %}: {{ project.name }}
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+    {% block sidenav_inner %}{% endblock %}
+</aside>

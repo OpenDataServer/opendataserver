@@ -3,7 +3,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
 
 from accounts.managers import UserManager
-from base.models import ProjectMember
+from base.models import ProjectMember, Project
 
 
 class User(AbstractBaseUser):
@@ -45,6 +45,10 @@ class User(AbstractBaseUser):
     def save(self, *args, **kwargs):
         self.email = self.email.lower()
         super().save(*args, **kwargs)
+
+    def get_projects(self):
+        project_members = ProjectMember.objects.filter(user=self)
+        return [project_member.project for project_member in project_members]
 
     def has_perm(self, perm, obj=None):
         """Does the user have a specific permission?"""

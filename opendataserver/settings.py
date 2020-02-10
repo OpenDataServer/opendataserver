@@ -58,7 +58,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.locale.LocaleMiddleware',
-    'base.middlewares.event.EventMiddleware'
+    'base.middlewares.project.ProjectMiddleware'
 ]
 
 ROOT_URLCONF = 'opendataserver.urls'

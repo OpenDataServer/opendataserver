@@ -1,0 +1,31 @@
+{% extends "sidenav_template.html" %}
+{% load i18n %}
+{% load user_permissions %}
+
+{% block sidenav_inner %}
+    <ul class="menu-list">
+        <li>
+            <a>{% trans 'Dashboard' %}</a>
+        </li>
+    </ul>
+    <p class="menu-label">
+        {% trans 'Settings' %}
+    </p>
+    <ul class="menu-list">
+        <li>
+            {% url "accounts:settings_general" as settings_general_url %}
+            <a {% if settings_general_url == request.path %}class="is-active"{% endif %}
+               href="{{ settings_general_url }}">{% trans 'General' %}</a>
+        </li>
+        <li>
+            <a>{% trans 'Security' %}</a>
+            <ul>
+                <li>
+                    {% url "accounts:settings_security_password" as settings_security_password_url %}
+                    <a {% if settings_security_password_url == request.path %}class="is-active"{% endif %}
+                       href="{{ settings_security_password_url }}">{% trans 'Password' %}</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+{% endblock %}

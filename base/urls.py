@@ -6,7 +6,6 @@ from base.views.project import settings, devices
 app_name = 'base'
 
 urlpatterns = [
-    path('projects/', projects.projects_list, name='projects_list'),
     path('projects/new/', projects.projects_new, name='projects_new'),
     path('project/<int:project_id>/settings/general', settings.GeneralSettingsView.as_view(),
          name="project_settings_general"),

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container is-fluid">
+        <div class="columns">
+            {% include 'settings/sidenav.html' %}
+            <aside class="column is-10-tablet is-11-fullhd is-12-mobile">
+                {% block innercontent %}{% endblock %}
+            </aside>
+        </div>
+    </div>
+{% endblock %}

@@ -6,12 +6,14 @@ from django.utils.translation import get_language, gettext
 from base.models import Project
 
 
-class EventMiddleware:
+class ProjectMiddleware:
     def __init__(self, get_response):
         self.get_response = get_response
 
     def __call__(self, request):
-        if not request.path.startswith(get_script_prefix() + get_language() + '/project') and not request.path.startswith(get_script_prefix() + get_language() + '/projects'):
+        if not request.path.startswith(
+            get_script_prefix() + get_language() + '/project') and not request.path.startswith(
+            get_script_prefix() + get_language() + '/projects'):
             return self.get_response(request)
 
         url = resolve(request.path_info)

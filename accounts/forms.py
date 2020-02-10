@@ -1,5 +1,8 @@
 from django import forms
-from django.contrib.auth.forms import ReadOnlyPasswordHashField, UserCreationForm
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.hashers import check_password
+from django.contrib.auth.password_validation import validate_password, password_validators_help_texts
+from django.utils.translation import gettext_lazy, ugettext_lazy
 
 from .models import User
 
@@ -10,16 +13,60 @@ class UserCreationForm(UserCreationForm):
         fields = ('email', 'first_name', 'last_name')
 
 
-class UserChangeForm(forms.ModelForm):
+class GeneralUserChangeForm(forms.ModelForm):
     """A form for updating users. Includes all the fields on
     the user, but replaces the password field with admin's
     password hash display field.
     """
-    password = ReadOnlyPasswordHashField()
 
     class Meta:
         model = User
-        fields = ('email', 'password', 'first_name', 'last_name', 'is_staff')
+        fields = ('email', 'first_name', 'last_name')
 
-    def clean_password(self):
-        return self.initial["password"]
+
+class PasswordChangeForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ()
+
+    old_password = forms.CharField(
+        max_length=255,
+        required=True,
+        label=gettext_lazy("Your current password"),
+        widget=forms.PasswordInput()
+    )
+    new_password = forms.CharField(
+        max_length=255,
+        required=True,
+        label=gettext_lazy("New passsword"),
+        widget=forms.PasswordInput()
+    )
+    new_password_repeat = forms.CharField(
+        max_length=255,
+        required=True,
+        label=gettext_lazy("New passsword (repeat)"),
+        widget=forms.PasswordInput()
+    )
+
+    def clean_old_password(self):
+        old_password = self.cleaned_data.get('old_password')
+        if old_password and not check_password(old_password, self.instance.password):
+            raise forms.ValidationError(gettext_lazy("Please enter your current password"))
+        return old_password
+
+    def clean_new_password(self):
+        new_password = self.cleaned_data.get('new_password')
+        if new_password and validate_password(new_password, user=self.instance) is not None:
+            raise forms.ValidationError(ugettext_lazy(password_validators_help_texts()))
+        return new_password
+
+    def clean_new_password_2(self):
+        new_password = self.cleaned_data.get('new_password')
+        new_password_repeat = self.cleaned_data.get('new_password_repeat')
+        if new_password and new_password != new_password_repeat:
+            raise forms.ValidationError("Please enter the same password twice")
+
+    def clean(self):
+        if self.cleaned_data.get('new_password'):
+            self.instance.set_password(self.cleaned_data.get('new_password'))
+        return self.cleaned_data
