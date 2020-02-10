@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-03 16:44+0100\n"
+"POT-Creation-Date: 2020-02-10 15:51+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Leo Maroni <hello@labcode.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,7 +45,7 @@ msgstr "E-Mail Adresse des Nutzers"
 msgid "Project name"
 msgstr "Projektname"
 
-#: base/middlewares/event.py:22
+#: base/middlewares/project.py:24
 msgid "The selected project was not found"
 msgstr "Das ausgewählte Projekt wurde nicht gefunden"
 
@@ -147,7 +147,7 @@ msgid "The Things Network"
 msgstr "The Things Network"
 
 #: base/templates/project/settings/general.html:17
-#: base/templates/projects/new.html:12
+#: base/templates/projects/new.html:15
 msgid "The project must have a name"
 msgstr "Das Projekt muss einen Namen haben"
 
@@ -158,7 +158,6 @@ msgid "Submit"
 msgstr "Absenden"
 
 #: base/templates/project/settings/members.html:4
-#: base/templates/projects/list.html:29
 msgid "Members"
 msgstr "Mitglieder"
 
@@ -182,11 +181,11 @@ msgstr "E-Mail"
 msgid "Create member"
 msgstr "Erstellen"
 
-#: base/templates/projects/list.html:23
-msgid "Devices"
-msgstr "Geräte"
+#: base/templates/projects/new.html:4
+msgid "New project"
+msgstr "Neues Projekt"
 
-#: base/templates/projects/new.html:27
+#: base/templates/projects/new.html:30
 msgid "Create"
 msgstr "Erstellen"
 
@@ -203,6 +202,5 @@ msgid "The user is already member in the project."
 msgstr "Der Nutzer ist entweder bereits Mitglied im Projekt"
 
 #: base/views/project/settings.py:99
-#, fuzzy
 msgid "The new member has been added to the project."
 msgstr "Das neue Mitglied wurde zum Projekt hinzugefügt"

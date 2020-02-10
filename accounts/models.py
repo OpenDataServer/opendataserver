@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractBaseUser
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
+from django.utils.translation import gettext_lazy
 
 from accounts.managers import UserManager
 from base.models import ProjectMember, Project
@@ -13,16 +14,19 @@ class User(AbstractBaseUser):
     email = models.EmailField(
         unique=True,
         db_index=True,
-        max_length=255
+        max_length=255,
+        verbose_name=gettext_lazy("E-Mail")
     )
 
     first_name = models.CharField(
-        max_length=255
+        max_length=255,
+        verbose_name=gettext_lazy("First name")
     )
 
     last_name = models.CharField(
         max_length=255,
-        blank=True
+        blank=True,
+        verbose_name=gettext_lazy("Last name")
     )
 
     is_staff = models.BooleanField(

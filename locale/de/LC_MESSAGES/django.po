@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-03 16:44+0100\n"
+"POT-Creation-Date: 2020-02-10 15:51+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Leo Maroni <hello@labcode.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,19 +34,19 @@ msgstr "Sprache auswählen"
 msgid "Devices"
 msgstr "Geräte"
 
-#: templates/project/sidenav.html:15
+#: templates/project/sidenav.html:16
 msgid "Project Settings"
 msgstr "Projekteinstellungen"
 
-#: templates/project/sidenav.html:21
+#: templates/project/sidenav.html:22
 msgid "General"
 msgstr "Allgemein"
 
-#: templates/project/sidenav.html:26
+#: templates/project/sidenav.html:27
 msgid "Members"
 msgstr "Mitglieder"
 
-#: templates/project/sidenav.html:31
+#: templates/project/sidenav.html:32
 msgid "New"
 msgstr "Neu"
 
@@ -54,16 +54,16 @@ msgstr "Neu"
 msgid "Login"
 msgstr ""
 
-#: templates/registration/login.html:36
+#: templates/registration/login.html:35
 #: templates/registration/password_reset_form.html:30
 msgid "Submit"
 msgstr "Absenden"
 
-#: templates/registration/login.html:45
+#: templates/registration/login.html:44
 msgid "Lost password"
 msgstr "Passwort vergessen"
 
-#: templates/registration/login.html:50
+#: templates/registration/login.html:49
 msgid "Sign up"
 msgstr "Registrieren"
 
@@ -126,3 +126,15 @@ msgstr ""
 "Wir haben dir eine E-Mail mit Anweisungen zur Änderung deines Passworts "
 "geschickt.Wenn sie in ein paar Minuten nicht angekommen sind, überprüfe "
 "deinen Spam-Ordner und wenn sie nicht da sind, schicke eine Mail an"
+
+#: templates/sidenav_template.html:11 templates/sidenav_template.html:34
+msgid "Project"
+msgstr "Projekt"
+
+#: templates/sidenav_template.html:13 templates/sidenav_template.html:24
+msgid "User"
+msgstr "Benutzer"
+
+#: templates/sidenav_template.html:29
+msgid "Create project"
+msgstr "Projekt erstellen"

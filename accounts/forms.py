@@ -32,19 +32,19 @@ class PasswordChangeForm(forms.ModelForm):
     old_password = forms.CharField(
         max_length=255,
         required=True,
-        label=gettext_lazy("Your current password"),
+        label=gettext_lazy("Current password"),
         widget=forms.PasswordInput()
     )
     new_password = forms.CharField(
         max_length=255,
         required=True,
-        label=gettext_lazy("New passsword"),
+        label=gettext_lazy("New password"),
         widget=forms.PasswordInput()
     )
     new_password_repeat = forms.CharField(
         max_length=255,
         required=True,
-        label=gettext_lazy("New passsword (repeat)"),
+        label=gettext_lazy("New password (repeat)"),
         widget=forms.PasswordInput()
     )
 

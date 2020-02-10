@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-03 16:44+0100\n"
+"POT-Creation-Date: 2020-02-10 15:51+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Leo Maroni <hello@labcode.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,9 +13,77 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: accounts/forms.py:35
+msgid "Current password"
+msgstr "Aktuelles Passwort"
+
+#: accounts/forms.py:41
+msgid "New password"
+msgstr "Neues Passwort"
+
+#: accounts/forms.py:47
+msgid "New password (repeat)"
+msgstr "Neues Passwort (Wiederholung)"
+
+#: accounts/forms.py:54
+msgid "Please enter your current password"
+msgstr ""
+
+#: accounts/models.py:18 accounts/templates/signup.html:58
+#: accounts/templates/signup.html:62
+msgid "E-Mail"
+msgstr "E-Mail-Adresse"
+
+#: accounts/models.py:23 accounts/templates/signup.html:33
+#: accounts/templates/signup.html:37
+msgid "First name"
+msgstr "Vorname"
+
+#: accounts/models.py:29 accounts/templates/signup.html:46
+#: accounts/templates/signup.html:50
+msgid "Last name"
+msgstr "Nachname"
+
 #: accounts/permissions.py:16
 msgid "You do not have the permission to view this project"
 msgstr "Du hast nicht die Berechtigung dieses Projekt anzuschauen"
+
+#: accounts/templates/settings/general.html:5
+msgid "Account - General"
+msgstr "Konto - Allgemein"
+
+#: accounts/templates/settings/general.html:19
+#: accounts/templates/settings/password.html:19
+#: accounts/templates/signup.html:103
+msgid "Submit"
+msgstr "Absenden"
+
+#: accounts/templates/settings/password.html:5
+#, fuzzy
+#| msgid "Password"
+msgid "Account - Password"
+msgstr "Passwort"
+
+#: accounts/templates/settings/sidenav.html:8
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: accounts/templates/settings/sidenav.html:12
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: accounts/templates/settings/sidenav.html:18
+msgid "General"
+msgstr "Allgemein"
+
+#: accounts/templates/settings/sidenav.html:21
+msgid "Security"
+msgstr "Sicherheit"
+
+#: accounts/templates/settings/sidenav.html:26
+#: accounts/templates/signup.html:71 accounts/templates/signup.html:75
+msgid "Password"
+msgstr "Passwort"
 
 #: accounts/templates/signup.html:5 accounts/templates/signup.html:14
 msgid "Sign up"
@@ -40,30 +108,14 @@ msgstr ""
 "Die Passwort-Bestätigung stimmt nicht mit dem Passwort überein oder erfüllt "
 "nicht die Mindestanforderungen. Bitte versuche es erneut."
 
-#: accounts/templates/signup.html:33 accounts/templates/signup.html:37
-msgid "First name"
-msgstr "Vorname"
-
 #: accounts/templates/signup.html:42 accounts/templates/signup.html:67
 #: accounts/templates/signup.html:82 accounts/templates/signup.html:99
 msgid "Required"
 msgstr "Erforderlich"
 
-#: accounts/templates/signup.html:46 accounts/templates/signup.html:50
-msgid "Last name"
-msgstr "Nachname"
-
 #: accounts/templates/signup.html:55
 msgid "Optional"
 msgstr "Optional"
-
-#: accounts/templates/signup.html:58 accounts/templates/signup.html:62
-msgid "E-Mail"
-msgstr "E-Mail-Adresse"
-
-#: accounts/templates/signup.html:71 accounts/templates/signup.html:75
-msgid "Password"
-msgstr "Passwort"
 
 #: accounts/templates/signup.html:83
 msgid ""
@@ -78,10 +130,10 @@ msgstr ""
 msgid "Password (Confirmation)"
 msgstr "Passwort (Bestätigung)"
 
-#: accounts/templates/signup.html:103
-msgid "Submit"
-msgstr "Absenden"
-
 #: accounts/templates/signup.html:112
 msgid "Log in"
 msgstr "Einloggen"
+
+#: accounts/views/settings.py:15
+msgid "Your changes have been saved."
+msgstr "Deine Änderungen wurden gespeichert."
