@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-10 15:51+0100\n"
+"POT-Creation-Date: 2020-02-25 21:20+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Leo Maroni <hello@labcode.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: opendataserver/settings.py:153
+#: opendataserver/settings.py:155
 msgid "English"
 msgstr "Englisch"
 
-#: opendataserver/settings.py:154
+#: opendataserver/settings.py:156
 msgid "German"
 msgstr "Deutsch"
 
@@ -54,16 +54,16 @@ msgstr "Neu"
 msgid "Login"
 msgstr ""
 
-#: templates/registration/login.html:35
+#: templates/registration/login.html:36
 #: templates/registration/password_reset_form.html:30
 msgid "Submit"
 msgstr "Absenden"
 
-#: templates/registration/login.html:44
+#: templates/registration/login.html:45
 msgid "Lost password"
 msgstr "Passwort vergessen"
 
-#: templates/registration/login.html:49
+#: templates/registration/login.html:50
 msgid "Sign up"
 msgstr "Registrieren"
 

@@ -130,6 +130,8 @@ AUTHENTICATION_BACKEND = [
     'django.contrib.auth.backends.ModelBackend'
 ]
 
+ACCOUNT_ACTIVATION_EXPIRY_DAYS = 7
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 

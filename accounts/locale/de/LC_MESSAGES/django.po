@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-10 15:51+0100\n"
+"POT-Creation-Date: 2020-02-25 21:20+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Leo Maroni <hello@labcode.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,6 +47,24 @@ msgstr "Nachname"
 #: accounts/permissions.py:16
 msgid "You do not have the permission to view this project"
 msgstr "Du hast nicht die Berechtigung dieses Projekt anzuschauen"
+
+#: accounts/templates/activation_email_body.txt:1
+#, fuzzy, python-format
+#| msgid ""
+#| "Hi %(user.first_name)s!\n"
+#| "We're so happy you've joined. Before you can use your account please "
+#| "confirm your email address. Please click on the link within the next "
+#| "%(expiration_days)s days: %(activation_url)s\n"
+msgid ""
+"Hi!\n"
+"We're so happy you've joined. Before you can use your account please confirm "
+"your email address. Please click on the link within the next "
+"%(expiration_days)s days: %(activation_url)s\n"
+msgstr ""
+"Hi!\n"
+"Wir sind sehr glücklich, dass du dich angemeldet hast.Bevor du dein Konto "
+"nutzen kannst, bestätige bitte deine E-Mail-Adresse.Bitte klicke deshalb "
+"innerhalb der nächsten %(expiration_days)s Tage auf den Link: %(activation_url)s\n"
 
 #: accounts/templates/settings/general.html:5
 msgid "Account - General"
@@ -137,3 +155,32 @@ msgstr "Einloggen"
 #: accounts/views/settings.py:15
 msgid "Your changes have been saved."
 msgstr "Deine Änderungen wurden gespeichert."
+
+#: accounts/views/signup.py:56
+msgid "Please confirm your e-mail address"
+msgstr "Bitte bestätige deine E-Mail Adresse"
+
+#: accounts/views/signup.py:75
+msgid ""
+"Thank you very much for your registration. We've sent you a confirmation "
+"mail with a link to activate your account."
+msgstr ""
+"Vielen Dank für deine Registrierung. Wir haben die eine Bestätigungsmail "
+"gesendet mit einem Link um dein Konto zu aktivieren."
+
+#: accounts/views/signup.py:81
+msgid "You've activated your account successfully, you can now log in."
+msgstr ""
+"Du hast dein Konto erfolgreich aktiviert, du kannst dich jetzt einloggen."
+
+#: accounts/views/signup.py:82
+msgid "The account you attempted to activate has expired."
+msgstr "Das Konto, das du versucht hast zu aktivieren, ist abgelaufen."
+
+#: accounts/views/signup.py:83
+msgid "The account is already activated. You can log in."
+msgstr "Dein Konto ist bereits aktiviert. Du kannst dich einloggen."
+
+#: accounts/views/signup.py:84
+msgid "The activation key you provided is invalid."
+msgstr "Der von dir angegebene Aktivierungsschlüssel ist ungültig."

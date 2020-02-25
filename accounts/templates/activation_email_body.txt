@@ -1,0 +1,3 @@
+{% load i18n %}{% blocktrans %}Hi!
+We're so happy you've joined. Before you can use your account please confirm your email address. Please click on the link within the next {{ expiration_days }} days: {{ activation_url }}
+{% endblocktrans %}
