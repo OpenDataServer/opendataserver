@@ -47,9 +47,8 @@ class SignUpView(FormView):
     def send_activation_email(self, user):
         activation_key = self.generate_activation_key(user)
         context = {
-            "scheme": "https" if self.request.is_secure() else "http",
             "activation_url": self.request.build_absolute_uri(reverse("accounts:activation", args=[activation_key])),
-            "expiration_days": settings.ACCOUNT_ACTIVATION_EXPIRY_DAYS,
+            "expiration_days": settings.CONFIRMATION_EXPIRY_DAYS,
             "site": get_current_site(self.request),
             "user": user
         }
@@ -108,7 +107,7 @@ class ActivationView(View):
         try:
             activation_key_dec = signing.loads(
                 activation_key,
-                max_age=timedelta(days=settings.ACCOUNT_ACTIVATION_EXPIRY_DAYS)
+                max_age=timedelta(days=settings.CONFIRMATION_EXPIRY_DAYS)
             )
             if activation_key_dec['sub'] == "account_activation":
                 return activation_key_dec['email']

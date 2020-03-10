@@ -1,0 +1,4 @@
+{% load i18n %}{% blocktrans %}Hi!
+Someone (hopefully you) has changed the e-mail address of their OpenDataServer account to {{ new_email }}.
+If you believe that this is a mistake please contact us by e-mail at {{ support_email_address }}
+{% endblocktrans %}

@@ -130,7 +130,7 @@ AUTHENTICATION_BACKEND = [
     'django.contrib.auth.backends.ModelBackend'
 ]
 
-ACCOUNT_ACTIVATION_EXPIRY_DAYS = 7
+CONFIRMATION_EXPIRY_DAYS = 7
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
@@ -179,7 +179,7 @@ EMAIL_HOST_PASSWORD = config.get('mail', 'password', fallback='')
 EMAIL_HOST = config.get('mail', 'host', fallback='localhost')
 EMAIL_USE_TLS = config.getboolean('mail', 'tls', fallback=False)
 EMAIL_USE_SSL = config.getboolean('mail', 'ssl', fallback=False)
-EMAIL_SUBJECT_PREFIX = '[OpenDataServer] '
+SUPPORT_EMAIL_ADDRESS = "contact@opendataserver.net"
 
 # Celery
 CELERY_BROKER_URL = config.get('celery', 'broker_url')

@@ -13,5 +13,5 @@ from opendataserver import settings
 def delete_not_activated_accounts():
     User.objects.filter(
         is_active=False,
-        date_joined__lt=datetime.now() - timedelta(days=settings.ACCOUNT_ACTIVATION_EXPIRY_DAYS)
+        date_joined__lt=datetime.now() - timedelta(days=settings.CONFIRMATION_EXPIRY_DAYS)
     ).delete()

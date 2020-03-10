@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-25 21:20+0100\n"
+"POT-Creation-Date: 2020-03-08 19:04+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Leo Maroni <hello@labcode.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,24 +13,40 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: accounts/forms.py:35
+#: accounts/forms.py:31
+msgid "New e-mail address"
+msgstr "Neue E-Mail Adresse"
+
+#: accounts/forms.py:36
+msgid "New e-mail address (repeat)"
+msgstr "Neue E-Mail Adresse (Wiederholung)"
+
+#: accounts/forms.py:42
+msgid "There is already an account with this e-mail address"
+msgstr "Es gibt bereits ein Account mit dieser E-Mail-Adresse."
+
+#: accounts/forms.py:49
+msgid "The e-mail address does not equal the repeated e-mail address"
+msgstr "Die E-Mail Adresse stimmt nicht überein mit der wiederholten E-Mail Adresse"
+
+#: accounts/forms.py:61
 msgid "Current password"
 msgstr "Aktuelles Passwort"
 
-#: accounts/forms.py:41
+#: accounts/forms.py:67
 msgid "New password"
 msgstr "Neues Passwort"
 
-#: accounts/forms.py:47
+#: accounts/forms.py:73
 msgid "New password (repeat)"
 msgstr "Neues Passwort (Wiederholung)"
 
-#: accounts/forms.py:54
+#: accounts/forms.py:80
 msgid "Please enter your current password"
-msgstr ""
+msgstr "Bitte gib dein aktuelles Passwort ein"
 
-#: accounts/models.py:18 accounts/templates/signup.html:58
-#: accounts/templates/signup.html:62
+#: accounts/models.py:18 accounts/templates/settings/sidenav.html:23
+#: accounts/templates/signup.html:58 accounts/templates/signup.html:62
 msgid "E-Mail"
 msgstr "E-Mail-Adresse"
 
@@ -66,21 +82,48 @@ msgstr ""
 "nutzen kannst, bestätige bitte deine E-Mail-Adresse.Bitte klicke deshalb "
 "innerhalb der nächsten %(expiration_days)s Tage auf den Link: %(activation_url)s\n"
 
+#: accounts/templates/settings/email.html:5
 #: accounts/templates/settings/general.html:5
 msgid "Account - General"
 msgstr "Konto - Allgemein"
 
+#: accounts/templates/settings/email.html:19
 #: accounts/templates/settings/general.html:19
 #: accounts/templates/settings/password.html:19
 #: accounts/templates/signup.html:103
 msgid "Submit"
 msgstr "Absenden"
 
+#: accounts/templates/settings/email_change_confirmation_body.txt:1
+#, python-format
+msgid ""
+"Hi!\n"
+"Someone (hopefully you) has changed the e-mail address of their "
+"OpenDataServer account to this e-mail address.\n"
+"If you wish to proceed click the following link in the next "
+"%(expiration_days)s days: %(activation_url)s\n"
+"If you did not make this request, you can safely ignore this email.\n"
+msgstr ""
+"Hi!\n"
+"Jemand (hoffentlich du) hat die E-Mail Adresse seines OpenDataServer-Kontos auf diese E-Mail Adresse geändert.\n"
+"Wenn du fortfahren willst, drücke in den nächsten %(expiration_days)s auf folgenden Link: %(activation_url)s\n"
+"Wenn du diese Anfrage nicht gestellt hast, kannst du diese E-Mail einfach ignorieren"
+
+#: accounts/templates/settings/email_notification_body.txt:1
+msgid ""
+"Hi!\n"
+"Someone (hopefully you) has changed the e-mail address of their "
+"OpenDataServer account to %(new_email)s.\n"
+"If you believe that this is a mistake please contact us by e-mail at "
+"%(support_email_address)s\n"
+msgstr ""
+"Jemand (hoffentlich du) hat die E-Mail Adresse seines OpenDataServer-Kontos auf folgende E-Mail Adresse geändert: "
+"%(new_email)s.\n"
+"Wenn du glaubst, dass dies ein Fehler ist, dann kontaktiere uns bitte per E-Mail unter %(support_email_address)s"
+
 #: accounts/templates/settings/password.html:5
-#, fuzzy
-#| msgid "Password"
 msgid "Account - Password"
-msgstr "Passwort"
+msgstr "Konto - Passwort"
 
 #: accounts/templates/settings/sidenav.html:8
 msgid "Dashboard"
@@ -94,11 +137,11 @@ msgstr "Einstellungen"
 msgid "General"
 msgstr "Allgemein"
 
-#: accounts/templates/settings/sidenav.html:21
+#: accounts/templates/settings/sidenav.html:28
 msgid "Security"
 msgstr "Sicherheit"
 
-#: accounts/templates/settings/sidenav.html:26
+#: accounts/templates/settings/sidenav.html:33
 #: accounts/templates/signup.html:71 accounts/templates/signup.html:75
 msgid "Password"
 msgstr "Passwort"
@@ -152,15 +195,48 @@ msgstr "Passwort (Bestätigung)"
 msgid "Log in"
 msgstr "Einloggen"
 
-#: accounts/views/settings.py:15
+#: accounts/views/settings.py:29
 msgid "Your changes have been saved."
 msgstr "Deine Änderungen wurden gespeichert."
 
-#: accounts/views/signup.py:56
+#: accounts/views/settings.py:73
+msgid "Please confirm your new e-mail address"
+msgstr "Bitte bestätige deine E-Mail Adresse"
+
+#: accounts/views/settings.py:91
+msgid ""
+"We've send you an e-mail to confirm your new e-mail address. Please click the "
+"link in the e-mail to make your change effective."
+msgstr ""
+"Wir haben dir eine E-Mail geschickt, um deine neue E-Mail Adresse zu bestätigen. "
+"Bitte klicke den Link in der E-Mail um deine Änderung wirksam zu machen."
+
+#: accounts/views/settings.py:97
+msgid "Your e-mail address has been changed."
+msgstr "Deine Änderungen wurden gespeichert."
+
+#: accounts/views/settings.py:98
+msgid ""
+"The confirmation key you provided has expired. Please request a new link."
+msgstr "Der von dir angegebene Aktivierungsschlüssel ist ungültig. Bitte frage einen neuen Link an."
+
+#: accounts/views/settings.py:99
+msgid "The e-mail address is already confirmed."
+msgstr "Deine E-Mail Adresse ist bereits bestätigt."
+
+#: accounts/views/settings.py:100
+msgid "The confirmation key you provided is invalid."
+msgstr "Der von dir angegebene Aktivierungsschlüssel ist ungültig."
+
+#: accounts/views/settings.py:117
+msgid "Your e-mail address has been changed"
+msgstr "Deine Änderungen wurden gespeichert."
+
+#: accounts/views/signup.py:55
 msgid "Please confirm your e-mail address"
 msgstr "Bitte bestätige deine E-Mail Adresse"
 
-#: accounts/views/signup.py:75
+#: accounts/views/signup.py:74
 msgid ""
 "Thank you very much for your registration. We've sent you a confirmation "
 "mail with a link to activate your account."
@@ -168,19 +244,19 @@ msgstr ""
 "Vielen Dank für deine Registrierung. Wir haben die eine Bestätigungsmail "
 "gesendet mit einem Link um dein Konto zu aktivieren."
 
-#: accounts/views/signup.py:81
+#: accounts/views/signup.py:80
 msgid "You've activated your account successfully, you can now log in."
 msgstr ""
 "Du hast dein Konto erfolgreich aktiviert, du kannst dich jetzt einloggen."
 
-#: accounts/views/signup.py:82
+#: accounts/views/signup.py:81
 msgid "The account you attempted to activate has expired."
 msgstr "Das Konto, das du versucht hast zu aktivieren, ist abgelaufen."
 
-#: accounts/views/signup.py:83
+#: accounts/views/signup.py:82
 msgid "The account is already activated. You can log in."
 msgstr "Dein Konto ist bereits aktiviert. Du kannst dich einloggen."
 
-#: accounts/views/signup.py:84
+#: accounts/views/signup.py:83
 msgid "The activation key you provided is invalid."
 msgstr "Der von dir angegebene Aktivierungsschlüssel ist ungültig."

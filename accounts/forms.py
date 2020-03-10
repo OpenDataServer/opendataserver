@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.hashers import check_password
 from django.contrib.auth.password_validation import validate_password, password_validators_help_texts
-from django.utils.translation import gettext_lazy, ugettext_lazy
+from django.utils.translation import gettext_lazy
 
 from .models import User
 
@@ -21,7 +21,33 @@ class GeneralUserChangeForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('email', 'first_name', 'last_name')
+        fields = ('first_name', 'last_name')
+
+
+class EmailChangeForm(forms.Form):
+    email = forms.CharField(
+        max_length=255,
+        required=True,
+        label=gettext_lazy("New e-mail address"),
+    )
+    email_repeat = forms.CharField(
+        max_length=255,
+        required=True,
+        label=gettext_lazy("New e-mail address (repeat)")
+    )
+
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if User.objects.filter(email__iexact=email).exists():
+            raise forms.ValidationError(gettext_lazy("There is already an account with this e-mail address"))
+        return email
+
+    def clean_email_repeat(self):
+        email = self.cleaned_data.get('email')
+        email_repeat = self.cleaned_data.get('email_repeat')
+        if email != email_repeat:
+            raise forms.ValidationError(gettext_lazy("The e-mail address does not equal the repeated e-mail address"))
+        return email_repeat
 
 
 class PasswordChangeForm(forms.ModelForm):
@@ -57,7 +83,7 @@ class PasswordChangeForm(forms.ModelForm):
     def clean_new_password(self):
         new_password = self.cleaned_data.get('new_password')
         if new_password and validate_password(new_password, user=self.instance) is not None:
-            raise forms.ValidationError(ugettext_lazy(password_validators_help_texts()))
+            raise forms.ValidationError(gettext_lazy(password_validators_help_texts()))
         return new_password
 
     def clean_new_password_2(self):

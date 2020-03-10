@@ -16,6 +16,13 @@
             {% url "accounts:settings_general" as settings_general_url %}
             <a {% if settings_general_url == request.path %}class="is-active"{% endif %}
                href="{{ settings_general_url }}">{% trans 'General' %}</a>
+            <ul>
+                <li>
+                    {% url "accounts:settings_general_email" as settings_general_email_url %}
+                    <a {% if settings_general_email_url == request.path %}class="is-active"{% endif %}
+                       href="{{ settings_general_email_url }}">{% trans 'E-Mail' %}</a>
+                </li>
+            </ul>
         </li>
         <li>
             <a>{% trans 'Security' %}</a>
