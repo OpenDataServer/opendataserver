@@ -38,13 +38,15 @@ def airrohr_data_get_task(authentication_airrohr_id: int):
                     "device_id": authentication_airrohr.device.pk,
                     "sensor_id": sensor.pk
                 },
-                "retention_policy": "raw_data",
                 "time": data_point['timestamp'],
                 "fields": {
-                    "value": sensor_data_value['value']
+                    "value": float(sensor_data_value['value'])
                 }
             })
-        influxdb_client.write_points(influxdb_data_points)
+    influxdb_client.write_points(
+        points=influxdb_data_points,
+        retention_policy="raw_data"
+    )
 
 
 @receiver(signal=airrohr_periodic_task_signal)
